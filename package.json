@@ -6,7 +6,8 @@
     "test": "test"
   },
   "scripts": {
-    "start:test": "./node_modules/mocha/bin/mocha --recursive --file utils/setup.js tests"
+    "start:test": "./node_modules/mocha/bin/mocha --recursive --file utils/setup.js tests",
+    "cs": "prettier --check -- fix 'resolvers/*.js'"
   },
   "_moduleAliases": {
     "@pages": "pages",

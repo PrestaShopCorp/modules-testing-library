@@ -5,7 +5,7 @@ module.exports =  class RetroCompatResolver {
         this.version = version;
     }
 
-    resolve(objPath){
+    require(objPath){
         const key = `${objPath}__${this.version}`
         if(undefined !==  overrideMapping[key]){
             return require(`${overrideMapping[key]['filepath']}`);
