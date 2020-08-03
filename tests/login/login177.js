@@ -1,11 +1,14 @@
-const helper = require('../../commun/utils/helpers');
-const LoggerHandler = require('../../commun/utils/LoggerHandler');
-const loginCommon = require('../../v177/commonTests/loginBO');
+const helper = require('../../utils/helpers');
+const OverrideMapper = require('../../kernel/main');
 
 // Importing pages
 
 let browserContext;
 let page;
+
+const overrideMapper = new OverrideMapper('177');
+let loginCommon = overrideMapper.getMap('commonTests/loginBO2.js');
+
 describe('Log in 177', async () => {
   // before and after functions
   before(async function () {
@@ -17,9 +20,6 @@ describe('Log in 177', async () => {
     await helper.closeBrowserContext(browserContext);
   });
   it('should login in BO 177', async function () {
-    const loggerHandler = new LoggerHandler('177');
-    loggerHandler.log('TESTING');
-
     await loginCommon.loginBO(this, page);
   });
 });

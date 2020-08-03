@@ -6,7 +6,7 @@
     "test": "test"
   },
   "scripts": {
-    "start:test": "./node_modules/mocha/bin/mocha --recursive --file commun/utils/setup.js tests"
+    "start:test": "./node_modules/mocha/bin/mocha --recursive --file utils/setup.js tests"
   },
   "_moduleAliases": {
     "@pages": "pages",

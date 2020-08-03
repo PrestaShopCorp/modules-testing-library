@@ -1,6 +1,6 @@
 const {expect} = require('chai');
 const loginPage = require('../pages/BO/login');
-const dashboardPage = require('../../commun/pages/BO/dashboard');
+const dashboardPage = require('../../pages/BO/dashboard');
 
 module.exports = {
   async loginBO(mochaContext, page) {

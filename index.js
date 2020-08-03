@@ -1,6 +1,6 @@
 const V177 = require('./v177');
 const fs = require('fs');
-const Commun = require('./commun');
+const Commun = require('./pages/common');
 
 class Main {
     constructor(version) {

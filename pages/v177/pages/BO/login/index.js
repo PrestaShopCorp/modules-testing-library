@@ -29,7 +29,6 @@ class Login extends BOBasePage {
   async login(page, email, password, waitForNavigation = true) {
     await page.type(this.emailInput, email);
     await page.type(this.passwordInput, password);
-    console.log('override 177')
     if (waitForNavigation) {
       await this.clickAndWaitForNavigation(page, this.submitLoginButton);
     } else {
