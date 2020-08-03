@@ -1,12 +1,12 @@
-const overrideMapping = require('./override-mapping');
+const overrideMapping = require('./class-extends');
 
 
-module.exports =  class Main {
+module.exports =  class RetroCompatResolver {
     constructor(version) {
         this.version = version;
     }
 
-    getMap(objPath){
+    resolve(objPath){
         const key = `${objPath}__${this.version}`
         if(undefined !==  overrideMapping[key]){
             console.log('found')

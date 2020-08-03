@@ -1,16 +1,17 @@
 const helper = require('../../utils/helpers');
-const OverrideMapper = require('../../kernel/main');
+const RetroCompatResolver = require('../../resolvers/RetroCompatResolver');
 
 // Importing pages
 
 let browserContext;
 let page;
+const version = '178';
+const retroCompatResolver = new RetroCompatResolver(version);
+// FixedMe
+// let loginCommon = retroCompatResolver.resolve('commonTests/loginBO.js');
+let loginCommon = retroCompatResolver.resolve('commonTests/loginBO2.js');
 
-const overrideMapper = new OverrideMapper('178');
-let loginCommon = overrideMapper.getMap('/home/david/Workspace/PrestaShop/poc-extends-qa/commonTests/loginBO.js');
-
-
-describe('Log in 178', async () => {
+describe(`Log in ${version}`, async () => {
   // before and after functions
   before(async function () {
     browserContext = await helper.createBrowserContext(this.browser);
@@ -20,7 +21,7 @@ describe('Log in 178', async () => {
   after(async () => {
     await helper.closeBrowserContext(browserContext);
   });
-  it('should login in BO 178', async function () {
+  it(`should login in BO ${version}`, async function () {
     await loginCommon.loginBO(this, page);
   });
 });
