@@ -1,4 +1,4 @@
-const BOBasePage = require('../../../../commun/pages/BO/BObasePage');
+const BOBasePage = require('../BObasePage');
 
 class Dashboard extends BOBasePage {
   constructor() {

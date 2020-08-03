@@ -1,5 +1,5 @@
 const helper = require('../../commun/utils/helpers');
-const loginCommon = require('../../commun/tests/loginBO');
+const loginCommon = require('../../commun/commonTests/loginBO');
 // Importing pages
 
 let browserContext;
@@ -13,7 +13,7 @@ describe('Log in Commun', async () => {
   after(async () => {
     await helper.closeBrowserContext(browserContext);
   });
-  it('should login in BO', async function () {
+  it('should login in BO Commun', async function () {
     await loginCommon.loginBO(this, page);
   });
 });
