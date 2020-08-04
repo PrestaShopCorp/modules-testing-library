@@ -29,6 +29,6 @@ describe(`Check prestashop version ${version}`, async () => {
 
   it('should check ps version', async () => {
     const psVersion = await loginPage.getPrestashopVersion(page);
-    await expect(psVersion).to.contains(version);
+    await expect(psVersion).to.contains('1.7.6.7');
   });
 });
