@@ -1,11 +1,23 @@
 {
-  "name": "kkk",
+  "name": "x-prestashop-test-module",
   "version": "0.0.1",
-  "description": "",
+  "description": "retro compat resolver",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrestaShopCorp/template-tests-modules.git"
+  },
+  "author": "PrestaShop",
+  "license": "OSL-3.0",
+  "npm-link": "https://www.npmjs.com/package/x-prestashop-test-module",
+  "bugs": {
+    "url": "https://github.com/PrestaShopCorp/template-tests-modules/issues"
+  },
+  "homepage": "https://github.com/PrestaShopCorp/template-tests-modules#readme",
   "scripts": {
-    "start:test": "./node_modules/mocha/bin/mocha --recursive --file utils/setup.js tests/ui",
+    "start:test": "yarn start:test:lint && ./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
+    "start:test:ui": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
     "start:test:units": "./node_modules/mocha/bin/mocha --recursive tests/unit",
-    "cs": "prettier --check --fix 'resolvers/*.js'",
+    "start:test:lint": "eslint  --fix --ignore-path .gitignore .",
     "lint": "eslint  --fix --ignore-path .gitignore ."
   },
   "dependencies": {

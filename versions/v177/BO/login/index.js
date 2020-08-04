@@ -1,4 +1,4 @@
-const BOBasePage = require('../BObasePage');
+const BOBasePage = require('../../../../kernel/common/BO/BObasePage');
 
 class Login extends BOBasePage {
   constructor() {
@@ -55,6 +55,8 @@ class Login extends BOBasePage {
    * @return {Promise<string>}
    */
   getPrestashopVersion(page) {
+    console.log('helle');
+
     return this.getTextContent(page, this.psVersionBlock);
   }
 }
