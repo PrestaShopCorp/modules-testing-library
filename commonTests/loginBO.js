@@ -7,7 +7,6 @@ module.exports = {
     await loginPage.goTo(page, global.BO.URL);
     await loginPage.login(page, global.BO.EMAIL, global.BO.PASSWD);
     const pageTitle = await dashboardPage.getPageTitle(page);
-    console.log('test commun');
 
     await expect(pageTitle).to.contains(dashboardPage.pageTitle);
     await dashboardPage.closeOnboardingModal(page);

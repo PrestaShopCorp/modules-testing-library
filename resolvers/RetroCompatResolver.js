@@ -7,15 +7,20 @@ module.exports = class RetroCompatResolver {
     this.version = version;
   }
 
-  getRequire(objPath, overrideMapping) {
+  getRequire(objPath, mapping) {
     const key = `${objPath}__${this.version}`;
-    if (undefined !== overrideMapping[key]) {
-      return `${overrideMapping[key].filepath}`;
+    if (undefined !== mapping[key]) {
+        return mapping[key].filepath;
     }
-    return process.cwd() + '/' + objPath;
+
+    return objPath;
   }
 
   require(objPath) {
-    return require(this.getRequire(objPath), overrideMapping);
+    const baseDir = process.cwd();
+    const fileRequired = this.getRequire(objPath, overrideMapping);
+    const absolutePathFile = baseDir + '/' + fileRequired;
+
+    return require(absolutePathFile);
   }
 };
