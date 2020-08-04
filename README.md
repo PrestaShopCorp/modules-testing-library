@@ -12,3 +12,12 @@ docker-composer up -d
 ```bash
 yarn start:test
 ```
+
+## TODO
+
+ * unit testing
+ * github action
+ * lib npm
+ * module pour tester import de la lib
+ * tester import de la lib dans le core
+ * system override pour le fichier `resolvers/class-extends.js`

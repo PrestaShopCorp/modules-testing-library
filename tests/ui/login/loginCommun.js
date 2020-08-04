@@ -1,13 +1,14 @@
-const helper = require('../../utils/helpers');
-const RetroCompatResolver = require('../../resolvers/RetroCompatResolver');
+const helper = require('../../../utils/helpers');
+const RetroCompatResolver = require('../../../resolvers/RetroCompatResolver');
 
 // Importing pages
 
 let browserContext;
 let page;
-const version = '177';
+const version = '178';
 const retroCompatResolver = new RetroCompatResolver(version);
-let loginCommon = retroCompatResolver.require('commonTests/loginBO2.js');
+// FixedMe
+const loginCommon = retroCompatResolver.require('commonTests/loginBO.js');
 
 describe(`Log in ${version}`, async () => {
   // before and after functions
