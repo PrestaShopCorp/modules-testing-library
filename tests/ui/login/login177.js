@@ -7,7 +7,7 @@ let browserContext;
 let page;
 const version = '177';
 const retroCompatResolver = new RetroCompatResolver(version);
-let loginCommon = retroCompatResolver.require('commonTests/loginBO2.js');
+const loginCommon = retroCompatResolver.require('commonTests/loginBO2.js');
 
 describe(`Log in ${version}`, async () => {
   // before and after functions

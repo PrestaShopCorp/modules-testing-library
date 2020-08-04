@@ -1,11 +1,14 @@
 {
-  "name": "???",
+
+  "name": "kkk",
   "version": "???",
   "description": "???",
   "scripts": {
     "start:test": "./node_modules/mocha/bin/mocha --recursive --file utils/setup.js tests/ui",
     "start:test:units": "node ./tests/unit/*.js --config=tests/units/config.js",
-    "cs": "prettier --check --fix 'resolvers/*.js'"
+
+    "cs": "prettier --check --fix 'resolvers/*.js'",
+    "lint": "eslint  --fix --ignore-path .gitignore ."
   },
   "dependencies": {
     "chai": "^4.2.0",

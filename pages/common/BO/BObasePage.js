@@ -1,6 +1,6 @@
-const CommonPage = require('../commonPage');
 const fs = require('fs');
 const imgGen = require('js-image-generator');
+const CommonPage = require('../commonPage');
 
 module.exports = class BOBasePage extends CommonPage {
   constructor() {
