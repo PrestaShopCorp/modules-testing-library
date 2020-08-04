@@ -16,7 +16,7 @@ yarn start:test
 ## TODO
 
  * unit testing
- * github action
+ * add unit test in github action
  * lib npm
  * module pour tester import de la lib
  * tester import de la lib dans le core
