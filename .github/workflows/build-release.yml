@@ -13,12 +13,6 @@ jobs:
         uses: PrestaShopCorp/github-action-build-js/12@v1.0
         with:
           cmd: yarn
-          path: ./
-      - name: Create & upload artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: ${{ github.event.repository.name }}
-          path: ../
   update_release_draft:
     runs-on: ubuntu-latest
     needs: [deploy]
