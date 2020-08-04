@@ -12,6 +12,7 @@ jobs:
 
   update_release_draft:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.event.ref == 'refs/heads/master'
     steps:
       - name: Checkout
         uses: actions/checkout@v2.0.0
