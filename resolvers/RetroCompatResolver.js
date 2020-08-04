@@ -5,12 +5,22 @@ module.exports =  class RetroCompatResolver {
         this.version = version;
     }
 
-    require(objPath){
+    getRequire(objPath){
         const key = `${objPath}__${this.version}`
         if(undefined !==  overrideMapping[key]){
-            return require(`${overrideMapping[key]['filepath']}`);
+            return `${overrideMapping[key]['filepath']}`;
         }
 
-        return require(process.cwd()+'/'+objPath);
+        return this.getBaseDir()+'/'+objPath;
     }
+
+    require(objPath){
+        return require(this.getRequire(objPath));
+    }
+
+    getBaseDir(){
+        return process.cwd();
+    }
+
+
 }

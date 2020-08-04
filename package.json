@@ -1,36 +1,12 @@
 {
-  "name": "ui-tests",
-  "version": "1.0.0",
-  "description": "User interface tests",
-  "directories": {
-    "test": "test"
-  },
+  "name": "???",
+  "version": "???",
+  "description": "???",
   "scripts": {
-    "start:test": "./node_modules/mocha/bin/mocha --recursive --file utils/setup.js tests",
-    "cs": "prettier --check -- fix 'resolvers/*.js'"
+    "start:test": "./node_modules/mocha/bin/mocha --recursive --file utils/setup.js tests/ui",
+    "start:test:units": "node ./tests/unit/*.js --config=tests/units/config.js",
+    "cs": "prettier --check --fix 'resolvers/*.js'"
   },
-  "_moduleAliases": {
-    "@pages": "pages",
-    "@commonTests": "commonTests",
-    "@data": "data",
-    "@utils": "utils",
-    "@tools": "tools"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PrestaShop/PrestaShop.git"
-  },
-  "keywords": [
-    "playwright",
-    "sanity",
-    "functional"
-  ],
-  "author": "PrestaShop",
-  "license": "OSL-3.0",
-  "bugs": {
-    "url": "https://github.com/PrestaShop/PrestaShop/issues"
-  },
-  "homepage": "https://github.com/PrestaShop/PrestaShop/tree/develop/tests/UI#readme",
   "dependencies": {
     "chai": "^4.2.0",
     "chai-string": "^1.5.0",
