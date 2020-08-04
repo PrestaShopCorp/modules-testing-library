@@ -1,10 +1,10 @@
 {
   "name": "kkk",
-  "version": "???",
-  "description": "???",
+  "version": "0.0.1",
+  "description": "",
   "scripts": {
     "start:test": "./node_modules/mocha/bin/mocha --recursive --file utils/setup.js tests/ui",
-    "start:test:units": "node ./tests/unit/*.js --config=tests/units/config.js",
+    "start:test:units": "./node_modules/mocha/bin/mocha --recursive tests/unit",
     "cs": "prettier --check --fix 'resolvers/*.js'",
     "lint": "eslint  --fix --ignore-path .gitignore ."
   },

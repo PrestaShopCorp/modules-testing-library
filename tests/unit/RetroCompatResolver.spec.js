@@ -1,3 +1,5 @@
+/* eslint-disable
+
 const RetroCompatResolver = require('resolvers/RetroCompatResolver.js');
 
 //override
@@ -16,3 +18,14 @@ expect(retroCompatResolver.getRequire('tralala.js')).to.equal('tralala-override.
 let retroCompatResolver = RetroCompatResolver('178');
 expect(retroCompatResolver.getRequire('youpi.js')).to.equal('youpi.js');
 expect(retroCompatResolver.getRequire('tralala.js')).to.equal('tralala.js');
+*/
+const assert = require('assert');
+
+describe('Basic Mocha String Test', function () {
+ it('should return number of charachters in a string', function () {
+        assert.equal("Hello".length, 5);
+    });
+ it('should return first charachter of the string', function () {
+        assert.equal("Hello".charAt(0), 'H');
+    });
+});
