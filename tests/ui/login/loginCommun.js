@@ -8,8 +8,8 @@ let page;
 const version = '178';
 const retroCompatResolver = new RetroCompatResolver(version);
 // FixedMe
-const loginCommon = retroCompatResolver.require('commonTests/loginBO.js');
 
+const loginCommon = retroCompatResolver.require('commonTests/loginBO.js');
 describe(`Log in ${version}`, async () => {
   // before and after functions
   before(async function () {

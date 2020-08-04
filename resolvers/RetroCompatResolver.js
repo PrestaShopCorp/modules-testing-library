@@ -12,7 +12,6 @@ module.exports = class RetroCompatResolver {
     if (undefined !== overrideMapping[key]) {
       return `${overrideMapping[key].filepath}`;
     }
-
     return `${this.getBaseDir()}/${objPath}`;
   }
 

@@ -7,6 +7,10 @@ class Login extends BOBasePage {
     this.pageTitle = 'PrestaShop';
     this.loginErrorText = 'The employee does not exist, or the password provided is incorrect.';
 
+    // Login header selectors
+    this.loginHeaderBlock = '#login-header';
+    this.psVersionBlock = `${this.loginHeaderBlock} div.text-center`;
+
     this.emailInput = '#email';
     this.passwordInput = '#passwd';
     this.submitLoginButton = '#submit_login';
@@ -43,6 +47,15 @@ class Login extends BOBasePage {
    */
   async getLoginError(page) {
     return this.getTextContent(page, this.alertDangerTextBlock);
+  }
+
+  /**
+   * Get prestashop version from login page
+   * @param page
+   * @return {Promise<string>}
+   */
+  getPrestashopVersion(page) {
+    return this.getTextContent(page, this.psVersionBlock);
   }
 }
 
