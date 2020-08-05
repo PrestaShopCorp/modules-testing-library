@@ -21,10 +21,12 @@ yarn start:test
 
 ```bash
 npm login
+npm publish
 ```
 
 ## TODO
- * publish lib npm
+
+ * tester publish npm sur CD
  * module pour tester import de la lib
  * BONUS (tester import de la lib dans le core)
 
