@@ -1,6 +1,6 @@
 {
-  "name": "prestashop_test_module",
-  "version": "0.0.3",
+  "name": "prestashop_tests_modules",
+  "version": "0.0.1",
   "description": "retro compat resolver",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "author": "PrestaShop",
   "license": "OSL-3.0",
-  "npm-link": "https://www.npmjs.com/package/prestashop_test_module",
+  "npm-link": "https://www.npmjs.com/package/prestashop_tests_modules",
   "bugs": {
     "url": "https://github.com/PrestaShopCorp/template-tests-modules/issues"
   },
