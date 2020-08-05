@@ -1,9 +1,10 @@
 /* eslint-disable */
+require('module-alias/register');
 
-const RetroCompatResolver = require('../../../../kernel/resolvers/RetroCompatResolver.js');
-const baseClassExtends = require('../../data/baseClassExtends');
-const overrideClassExtends = require('../../data/getRequireClassExtends');
-const resultatClassExtends = require('../../data/resultatClassExtends');
+const RetroCompatResolver = require('@resolvers/RetroCompatResolver.js');
+const baseClassExtends = require('@unitTests/data/baseClassExtends');
+const overrideClassExtends = require('@unitTests/data/getRequireClassExtends');
+const resultatClassExtends = require('@unitTests/data/resultatClassExtends');
 
 const { expect } = require('chai');
 

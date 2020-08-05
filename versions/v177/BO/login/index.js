@@ -1,4 +1,5 @@
-const BOBasePage = require('../../../../kernel/common/BO/BObasePage');
+require('module-alias/register');
+const BOBasePage = require('@kernel/common/BO/BObasePage');
 
 class Login extends BOBasePage {
   constructor() {

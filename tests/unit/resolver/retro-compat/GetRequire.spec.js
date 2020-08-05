@@ -1,8 +1,9 @@
 /* eslint-disable */
+require('module-alias/register');
 
-const RetroCompatResolver = require('../../../../kernel/resolvers/RetroCompatResolver.js');
+const RetroCompatResolver = require('@resolvers/RetroCompatResolver.js');
 const assert = require('assert');
-const getRequireClassExtends = require('../../data/getRequireClassExtends');
+const getRequireClassExtends = require('@unitTests/data/getRequireClassExtends');
 
 describe('Testing resolver retroCompact getRequire', function () {
     it('should call method with class extends', function () {

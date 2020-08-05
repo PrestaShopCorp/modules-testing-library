@@ -1,6 +1,8 @@
+require('module-alias/register');
+
 const {expect} = require('chai');
-const helper = require('../../../kernel/utils/helpers');
-const RetroCompatResolver = require('../../../kernel/resolvers/RetroCompatResolver');
+const helper = require('@utils/helpers');
+const RetroCompatResolver = require('@resolvers/RetroCompatResolver');
 
 // Importing pages
 

@@ -1,3 +1,4 @@
 mochawesome-report
 node_modules
 yarn-error.log
+.idea/
