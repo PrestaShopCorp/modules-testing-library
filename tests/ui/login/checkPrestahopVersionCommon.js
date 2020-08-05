@@ -6,7 +6,7 @@ const RetroCompatResolver = require('../../../kernel/resolvers/RetroCompatResolv
 
 let browserContext;
 let page;
-const version = '177';
+const version = '178';
 const retroCompatResolver = new RetroCompatResolver(version);
 const loginPage = retroCompatResolver.require('kernel/common/BO/login/index.js');
 

@@ -9,13 +9,36 @@ docker-composer up -d
 
 ## Usage
 
+### Standard lib
+
 ```bash
 yarn start:test
 ```
 
+### [In module](./doc/module.md)
+
+## Publish
+
+```bash
+npm login
+npm publish
+```
+
 ## TODO
 
- * lib npm
+ * tester publish npm sur CD
  * module pour tester import de la lib
- * tester import de la lib dans le core
- * system override pour le fichier `resolvers/class-extends.js`
+ * BONUS (tester import de la lib dans le core)
+
+#### Limitation
+
+convention de nomage pour `config/class-extends.js`
+
+```js
+module.exports = {
+  '<base_path>__<version>': {
+    version: <version>,
+    filepath: <override_path>,
+  }
+};
+```
