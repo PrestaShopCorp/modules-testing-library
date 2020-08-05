@@ -20,6 +20,14 @@
     "start:test:lint": "eslint  --fix --ignore-path .gitignore .",
     "lint": "eslint  --fix --ignore-path .gitignore ."
   },
+  "_moduleAliases": {
+    "@resolvers": "kernel/resolvers",
+    "@versions": "versions",
+    "@utils": "kernel/utils",
+    "@kernel": "kernel",
+    "@unitTests": "tests/unit",
+    "@uiTests":  "tests/ui"
+  },
   "dependencies": {
     "chai": "^4.2.0",
     "chai-string": "^1.5.0",
