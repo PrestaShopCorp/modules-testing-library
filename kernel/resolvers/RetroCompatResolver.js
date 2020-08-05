@@ -1,4 +1,5 @@
 /* eslint-disable */
+require('module-alias/register');
 
 const overrideMapping = require('./class-extends');
 
@@ -24,7 +25,7 @@ module.exports = class RetroCompatResolver {
   require(baseObj) {
     const objMerge = this.mergeMapping(overrideMapping, this.classExtensFiles);
     return require(
-      process.cwd() + '/' + this.getRequire(baseObj, objMerge)
+      this.getRequire(baseObj, objMerge),
     );
   }
 };
