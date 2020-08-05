@@ -19,8 +19,8 @@ module.exports = {
     version: 177,
     filepath: '@kernel/common/BO/modules/moduleManager/index.js',
   },
-  'kernel/common/BO/modules/moduleManager/index.js__178': {
-    version: 178,
-    filepath: '@kernel/common/BO/modules/moduleManager/index.js',
+  'kernel/common/BO/modules/moduleConfiguration/index.js__177': {
+    version: 177,
+    filepath: '@kernel/common/BO/modules/moduleConfiguration/index.js',
   },
 };
