@@ -1,5 +1,5 @@
 require('module-alias/register');
-const BOBasePage = require('../BObasePage');
+const BOBasePage = require('@kernel/common/BO/BObasePage');
 
 class Dashboard extends BOBasePage {
   constructor() {
