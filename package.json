@@ -1,6 +1,6 @@
 {
-  "name": "x-prestashop-test-module",
-  "version": "0.0.1",
+  "name": "prestashop_test_module",
+  "version": "0.0.3",
   "description": "retro compat resolver",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "author": "PrestaShop",
   "license": "OSL-3.0",
-  "npm-link": "https://www.npmjs.com/package/x-prestashop-test-module",
+  "npm-link": "https://www.npmjs.com/package/prestashop_test_module",
   "bugs": {
     "url": "https://github.com/PrestaShopCorp/template-tests-modules/issues"
   },
@@ -21,6 +21,9 @@
     "lint": "eslint  --fix --ignore-path .gitignore ."
   },
   "dependencies": {
+    "module-alias": "^2.2.2"
+  },
+  "devDependencies": {
     "chai": "^4.2.0",
     "chai-string": "^1.5.0",
     "eslint-config-prestashop": "0.0.2",
@@ -28,11 +31,8 @@
     "js-image-generator": "^1.0.2",
     "mocha": "^6.1.4",
     "mochawesome": "^2.3.0",
-    "module-alias": "^2.2.2",
     "pdfjs-dist": "^2.3.200",
-    "playwright": "^1.1.1"
-  },
-  "devDependencies": {
+    "playwright": "^1.1.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
