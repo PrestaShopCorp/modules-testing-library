@@ -2,13 +2,13 @@ name: NPM Publish
 
 on:
   push:
-
+   tags:
+      - '*'
 jobs:
   npm-publish:
     name: NPM Publish
     runs-on: ubuntu-latest
     steps:
-
       - name: Get tag
         id: get_tag
         run: echo ::set-output name=TAG::$(echo $GITHUB_REF | cut -d / -f 3)
@@ -27,7 +27,7 @@ jobs:
         run: npm version $VERSION --no-git-tag-version --allow-same-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          VERSION: 0.0.6
+          VERSION: ${{ steps.get_tag.outputs.TAG }}
 
       - name: Publish
         run: npm publish
