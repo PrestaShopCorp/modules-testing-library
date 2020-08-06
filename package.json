@@ -1,18 +1,18 @@
 {
-  "name": "prestashop_tests_modules",
-  "version": "0.0.2",
+  "name": "prestashop_test_lib",
+  "version": "0.0.1",
   "description": "retro compat resolver",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PrestaShopCorp/template-tests-modules.git"
+    "url": "git+https://github.com/PrestaShopCorp/prestashop_test_lib.git"
   },
   "author": "PrestaShop",
   "license": "OSL-3.0",
-  "npm-link": "https://www.npmjs.com/package/prestashop_tests_modules",
+  "npm-link": "https://www.npmjs.com/package/prestashop_test_lib",
   "bugs": {
-    "url": "https://github.com/PrestaShopCorp/template-tests-modules/issues"
+    "url": "https://github.com/PrestaShopCorp/prestashop_test_lib/issues"
   },
-  "homepage": "https://github.com/PrestaShopCorp/template-tests-modules#readme",
+  "homepage": "https://github.com/PrestaShopCorp/prestashop_test_lib#readme",
   "scripts": {
     "start:test": "yarn start:test:lint && ./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
     "start:test:ui": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
