@@ -1,6 +1,6 @@
 {
   "name": "prestashop_tests_modules",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "retro compat resolver",
   "repository": {
     "type": "git",
