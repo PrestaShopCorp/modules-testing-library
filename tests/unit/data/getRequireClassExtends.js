@@ -1,6 +1,6 @@
 module.exports = {
-  'test.js__179': {
-    version: 179,
-    filepath: 'test.js',
+  'test.js__178': {
+    version: 178,
+    filepath: 'version.js',
   },
 };

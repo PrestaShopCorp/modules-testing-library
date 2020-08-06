@@ -12,7 +12,11 @@ module.exports = class RetroCompatResolver {
   getRequire(baseObj, mapper) {
     const key = `${baseObj}__${this.version}`;
     if (undefined !== mapper[key]) {
-        return mapper[key].filepath;
+        if(true === mapper[key].override){
+          return process.cwd() + '/' + mapper[key].filepath;
+        }else{
+          return mapper[key].filepath;
+        }
     }
 
     return baseObj;

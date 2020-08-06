@@ -3,13 +3,13 @@ require('module-alias/register');
 
 const RetroCompatResolver = require('@resolvers/RetroCompatResolver.js');
 const baseClassExtends = require('@unitTests/data/baseClassExtends');
-const overrideClassExtends = require('@unitTests/data/getRequireClassExtends');
+const overrideClassExtends = require('@unitTests/data/overrideClassExtends');
 const resultatClassExtends = require('@unitTests/data/resultatClassExtends');
 
 const { expect } = require('chai');
 
 describe('Testing resolver retroCompact mergeMapping', function () {
-    it('I have not file extends-class override', function () {
+    it('I have not file override extends-class', function () {
         const retroCompatResolver = new RetroCompatResolver('177');
         expect(
             retroCompatResolver.mergeMapping(
@@ -20,7 +20,7 @@ describe('Testing resolver retroCompact mergeMapping', function () {
         );
     });
 
-    it('I have file extends-class override', function () {
+    it('I have override file extends-class', function () {
         const retroCompatResolver = new RetroCompatResolver('177');
         expect(
             retroCompatResolver.mergeMapping(
