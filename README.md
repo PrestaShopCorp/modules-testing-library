@@ -24,6 +24,8 @@ npm login
 npm publish
 ```
 
+[Unpublish](https://docs.npmjs.com/unpublishing-packages-from-the-registry)
+
 ## TODO
 
  * tester publish npm sur CD
@@ -42,3 +44,5 @@ module.exports = {
   }
 };
 ```
+
+Ide autocomplete
