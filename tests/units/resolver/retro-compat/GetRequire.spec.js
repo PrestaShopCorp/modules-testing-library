@@ -28,11 +28,12 @@ describe('Testing resolver retroCompact getRequire', () => {
 
   it('should call override custom require', () => {
     const retroCompatResolver = new RetroCompatResolver('177');
-    assert.equal(retroCompatResolver.getRequire(
-      'test.js',
-      getRequireCustomClassExtends,
-    ),
-    `${process.cwd()}/custom.js`,
+    assert.equal(
+      retroCompatResolver.getRequire(
+        'test.js',
+        getRequireCustomClassExtends,
+      ),
+      `${process.cwd()}/custom.js`,
     );
   });
 });
