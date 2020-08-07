@@ -1,6 +1,4 @@
-/* eslint-disable */
 require('module-alias/register');
-
 const overrideMapping = require('./class-extends');
 
 module.exports = class RetroCompatResolver {
@@ -12,13 +10,11 @@ module.exports = class RetroCompatResolver {
   getRequire(baseObj, mapper) {
     const key = `${baseObj}__${this.version}`;
     if (undefined !== mapper[key]) {
-        if(true === mapper[key].override){
-          return process.cwd() + '/' + mapper[key].filepath;
-        }else{
-          return mapper[key].filepath;
-        }
+      if (mapper[key].override === true) {
+        return `${process.cwd()}/${mapper[key].filepath}`;
+      }
+      return mapper[key].filepath;
     }
-
     return baseObj;
   }
 
@@ -28,6 +24,7 @@ module.exports = class RetroCompatResolver {
 
   require(baseObj) {
     const objMerge = this.mergeMapping(overrideMapping, this.classExtensFiles);
+    // eslint-disable-next-line global-require,import/no-dynamic-require
     return require(
       this.getRequire(baseObj, objMerge),
     );
