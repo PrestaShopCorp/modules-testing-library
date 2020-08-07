@@ -7,4 +7,5 @@ docker-compose.yml
 mochawesome-report
 node_modules
 README.md
-tests
+tests/units
+

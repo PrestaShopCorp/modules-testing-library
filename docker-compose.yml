@@ -1,9 +1,9 @@
 version: "3"
 
 services:
-  ps_account_web:
+  ps_web:
     image: prestashop/prestashop:${PS_VERSION}
-    container_name: ps_acc_web
+    container_name: ps_web
     env_file: .env
     healthcheck:
         test: ["CMD", "curl", "-f", "http://localhost"]
@@ -13,15 +13,14 @@ services:
     ports:
       - 80:80
     networks:
-      - services_accounts-net
+      - ps-net
 
-  ps_account_db:
+  ps_db:
     image: mysql:5.7
-    container_name: ps_acc_db
+    container_name: ps_db
     env_file: .env
     networks:
-      - services_accounts-net
+      - ps-net
 
 networks:
-  services_accounts-net:
-    external: true
+  ps-net:

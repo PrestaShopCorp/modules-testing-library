@@ -177,7 +177,7 @@ module.exports = class BOBasePage extends CommonPage {
     }
     await this.scrollTo(page, linkSelector);
     await this.clickAndWaitForNavigation(page, linkSelector);
-    await this.waitForVisibleSelector(page, `${linkSelector}.link-active`);
+    await this.waitForVisibleSelector(page, `${linkSelector}.-active`);
   }
 
   /**
