@@ -2,15 +2,15 @@ require('module-alias/register');
 
 const {expect} = require('chai');
 const helper = require('@utils/helpers');
-const RetroCompatResolver = require('@resolvers/RetroCompatResolver');
+const VersionSelectedResolver = require('@resolvers/VersionSelectedResolver');
 
 // Importing pages
 
 let browserContext;
 let page;
-const version = '177';
-const retroCompatResolver = new RetroCompatResolver(version);
-const loginPage = retroCompatResolver.require('kernel/common/BO/login/index.js');
+const version = '1.7.7';
+const versionSelectedResolver = new VersionSelectedResolver(version);
+const loginPage = versionSelectedResolver.require('kernel/common/BO/login/index.js');
 
 describe(`Check prestashop version ${version}`, async () => {
   // before and after functions
@@ -32,6 +32,6 @@ describe(`Check prestashop version ${version}`, async () => {
 
   it('should check ps version', async () => {
     const psVersion = await loginPage.getPrestashopVersion(page);
-    await expect(psVersion).to.contains('1.7.6.7');
+    await expect(psVersion).to.contains('1.7.6.3');
   });
 });

@@ -1,6 +1,6 @@
 {
   "name": "prestashop_test_lib",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "retro compat resolver",
   "repository": {
     "type": "git",
@@ -16,8 +16,8 @@
   "scripts": {
     "start:test": "yarn start:test:lint && ./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
     "start:test:ui": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
-    "start:test:units": "./node_modules/mocha/bin/mocha --recursive tests/unit",
-    "start:test:lint": "eslint  --fix --ignore-path .gitignore .",
+    "start:test:units": "./node_modules/mocha/bin/mocha --recursive tests/units",
+    "start:test:lint": "eslint --ignore-path .gitignore .",
     "lint": "eslint  --fix --ignore-path .gitignore ."
   },
   "_moduleAliases": {
@@ -25,7 +25,7 @@
     "@versions": "versions",
     "@utils": "kernel/utils",
     "@kernel": "kernel",
-    "@unitTests": "tests/unit",
+    "@unitTests": "tests/units",
     "@uiTests":  "tests/ui"
   },
   "dependencies": {
