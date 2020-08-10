@@ -1,7 +1,7 @@
 require('module-alias/register');
 const configClassMap = require('./configClassMap');
 
-module.exports = class VersionSelectedResolver {
+module.exports = class VersionSelectResolver {
   constructor(version, customConfigClassMap) {
     this.version = version;
     this.customConfigClassMap = customConfigClassMap;
@@ -13,7 +13,7 @@ module.exports = class VersionSelectedResolver {
     const common = mapper.find(el => el.version === 'common' && el.selector === selector);
 
     if (undefined !== custom) {
-      return custom.filepath;
+      return `${process.cwd()}/${custom.filepath}`;
     }
 
     if (undefined !== specificVersion) {
