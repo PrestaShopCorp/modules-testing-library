@@ -56,8 +56,6 @@ class Login extends BOBasePage {
    * @return {Promise<string>}
    */
   getPrestashopVersion(page) {
-    console.log('hello');
-
     return this.getTextContent(page, this.psVersionBlock);
   }
 }
