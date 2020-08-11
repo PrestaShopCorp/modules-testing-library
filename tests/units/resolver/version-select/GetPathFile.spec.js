@@ -12,7 +12,7 @@ describe('Testing resolver retroCompact getRequire', () => {
       'kernel/common/BO/login/index.js',
       getRequireClassExtends,
     ),
-    '@kernel/common/BO/login/index.js',
+    `${process.cwd()}/node_modules/prestashop_test_lib/kernel/common/BO/login/index.js`,
     );
   });
 
@@ -22,7 +22,17 @@ describe('Testing resolver retroCompact getRequire', () => {
       'kernel/common/BO/login/index.js',
       getRequireClassExtends,
     ),
-    '@versions/v178/BO/login/index.js',
+    `${process.cwd()}/node_modules/prestashop_test_lib/versions/v178/BO/login/index.js`,
+    );
+  });
+
+  it('should call specific version pathfile with directory', () => {
+    const versionSelectResolver = new VersionSelectResolver('1.7.8', getRequireClassExtends);
+    assert.equal(versionSelectResolver.getFilePath(
+      'kernel/common/BO/login/index.js',
+      getRequireClassExtends,
+    ),
+    `${process.cwd()}/node_modules/prestashop_test_lib/versions/v178/BO/login/index.js`,
     );
   });
 
