@@ -1,6 +1,6 @@
 {
   "name": "prestashop_test_lib",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "version select resolver",
   "repository": {
     "type": "git",
@@ -14,9 +14,10 @@
   },
   "homepage": "https://github.com/PrestaShopCorp/prestashop_test_lib#readme",
   "scripts": {
-    "start:test": "yarn start:test:lint && ./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
-    "start:test:ui": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
-    "start:test:units": "./node_modules/mocha/bin/mocha --recursive tests/units",
+    "ln": "rm -rf ./node_modules/prestashop_test_lib && ln -s .. ./node_modules/prestashop_test_lib",
+    "start:test": "yarn  ln && ./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
+    "start:test:ui": "yarn  ln &&  ./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
+    "start:test:units": "yarn  ln &&  ./node_modules/mocha/bin/mocha --recursive tests/units",
     "start:test:lint": "eslint --ignore-path .gitignore .",
     "lint": "eslint  --fix --ignore-path .gitignore ."
   },
