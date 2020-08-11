@@ -17,21 +17,31 @@ module.exports = class VersionSelectResolver {
     }
 
     if (undefined !== specificVersion) {
-      return specificVersion.filepath;
+      const filepath = this.getAbsolutePath(specificVersion.filepath);
+
+      return filepath;
     }
 
-    return common.filepath;
+    const filepath = this.getAbsolutePath(common.filepath);
+
+    return filepath;
+  }
+
+  getAbsolutePath(filepath) {
+    return filepath.replace('@', `${process.cwd()}/node_modules/prestashop_test_lib/`);
   }
 
   arrayMerge(configClassMap, customConfigClassMap = []) {
     return configClassMap.concat(customConfigClassMap);
   }
 
-  require(baseObj) {
-    const objMerge = this.arrayMerge(configClassMap, this.customConfigClassMap);
+  require(selector) {
     // eslint-disable-next-line global-require,import/no-dynamic-require
     return require(
-      this.getFilePath(baseObj, objMerge),
+      this.getFilePath(
+        selector,
+        this.customConfigClassMap !== null ? this.arrayMerge(configClassMap, this.customConfigClassMap) : configClassMap,
+      ),
     );
   }
 };
