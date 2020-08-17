@@ -1,5 +1,9 @@
 require('module-alias/register');
-const BOBasePage = require('@kernel/common/BO/BObasePage');
+
+const VersionSelectResolver = require('@resolvers/VersionSelectResolver');
+
+const versionSelectResolver = new VersionSelectResolver(global.INSTALL.PS_VERSION);
+const BOBasePage = versionSelectResolver.require('kernel/common/BO/BObasePage.js');
 
 class Dashboard extends BOBasePage {
   constructor() {

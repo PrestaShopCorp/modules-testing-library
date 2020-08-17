@@ -1,5 +1,8 @@
 require('module-alias/register');
-const BOBasePage = require('@pages/BO/BObasePage');
+const VersionSelectResolver = require('@resolvers/VersionSelectResolver');
+
+const versionSelectResolver = new VersionSelectResolver(global.INSTALL.PS_VERSION);
+const BOBasePage = versionSelectResolver.require('kernel/common/BO/BObasePage.js');
 
 class Login extends BOBasePage {
   constructor() {
@@ -8,6 +11,11 @@ class Login extends BOBasePage {
     this.pageTitle = 'PrestaShop';
     this.loginErrorText = 'The employee does not exist, or the password provided is incorrect.';
 
+    // Login header selectors
+    this.loginHeaderBlock = '#login-header';
+    this.psVersionBlock = `${this.loginHeaderBlock} div.text-center`;
+
+    // Login Form selectors
     this.emailInput = '#email';
     this.passwordInput = '#passwd';
     this.submitLoginButton = '#submit_login';
@@ -27,7 +35,7 @@ class Login extends BOBasePage {
    * @param waitForNavigation, false if login should fail
    * @returns {Promise<void>}
    */
-  async login(page, email, password, waitForNavigation = true) {
+  async login(page, email = global.BO.EMAIL, password = global.BO.PASSWD, waitForNavigation = true) {
     await page.type(this.emailInput, email);
     await page.type(this.passwordInput, password);
     if (waitForNavigation) {
