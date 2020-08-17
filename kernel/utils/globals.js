@@ -18,7 +18,7 @@ global.INSTALL = {
   DB_USER: process.env.DB_USER || 'root',
   DB_PASSWD: process.env.DB_PASSWD || '',
   SHOPNAME: process.env.SHOPNAME || 'Prestashop',
-  PS_VERSION: process.env.PS_VERSION || '1.7.6.0',
+  PS_VERSION: process.env.PS_VERSION || '1.7.7.0',
 };
 
 global.BROWSER = {
