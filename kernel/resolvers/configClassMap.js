@@ -30,6 +30,11 @@ module.exports = [
     filepath: '@kernel/common/BO/modules/moduleManager/index.js',
   },
   {
+    version: '1.7.4.4',
+    selector: 'kernel/common/BO/modules/moduleManager/index.js',
+    filepath: '@versions/v174/BO/modules/moduleManager/index.js',
+  },
+  {
     version: 'common',
     selector: 'kernel/common/BO/modules/moduleConfiguration/index.js',
     filepath: '@kernel/common/BO/modules/moduleConfiguration/index.js',
