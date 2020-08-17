@@ -122,6 +122,8 @@ module.exports = class BOBasePage extends CommonPage {
     // Multistore
     this.multistoreLink = '#subtab-AdminShopGroup';
 
+    this.sideMenuActiveLink = link => `${link}.-active`;
+
     // welcome module
     this.onboardingCloseButton = 'button.onboarding-button-shut-down';
     this.onboardingStopButton = 'a.onboarding-button-stop';
@@ -177,9 +179,10 @@ module.exports = class BOBasePage extends CommonPage {
         this.waitForVisibleSelector(page, `${parentSelector}.open`),
       ]);
     }
+
     await this.scrollTo(page, linkSelector);
     await this.clickAndWaitForNavigation(page, linkSelector);
-    await this.waitForVisibleSelector(page, `${linkSelector}.-active`);
+    await this.waitForVisibleSelector(page, this.sideMenuActiveLink(linkSelector));
   }
 
   /**
@@ -190,7 +193,9 @@ module.exports = class BOBasePage extends CommonPage {
   async logoutBO(page) {
     if (await this.elementVisible(page, this.userProfileIcon, 1000)) {
       await page.click(this.userProfileIcon);
-    } else await page.$eval(this.userProfileIconNonMigratedPages, el => el.click());
+    } else {
+      await page.$eval(this.userProfileIconNonMigratedPages, el => el.click());
+    }
     await this.waitForVisibleSelector(page, this.userProfileLogoutLink);
     await this.clickAndWaitForNavigation(page, this.userProfileLogoutLink);
   }
