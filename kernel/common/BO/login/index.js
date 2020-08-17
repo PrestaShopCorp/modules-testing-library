@@ -1,4 +1,5 @@
-const BOBasePage = require('@kernel/common/BO/BObasePage');
+require('module-alias/register');
+const BOBasePage = require('@pages/BO/BObasePage');
 
 class Login extends BOBasePage {
   constructor() {
@@ -6,9 +7,6 @@ class Login extends BOBasePage {
 
     this.pageTitle = 'PrestaShop';
     this.loginErrorText = 'The employee does not exist, or the password provided is incorrect.';
-    // Login header selectors
-    this.loginHeaderBlock = '#login-header';
-    this.psVersionBlock = `${this.loginHeaderBlock} div.text-center`;
 
     this.emailInput = '#email';
     this.passwordInput = '#passwd';
