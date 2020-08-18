@@ -21,6 +21,7 @@ module.exports = class BOBasePage extends CommonPage {
     this.helpButton = '#product_form_open_help';
 
     // left navbar
+    this.dashboardLink = '#tab-AdminDashboard';
     // SELL
     // Orders
     this.ordersParentLink = 'li#subtab-AdminParentOrders';

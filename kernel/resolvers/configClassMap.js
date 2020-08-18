@@ -15,9 +15,19 @@ module.exports = [
     filepath: '@versions/v173/BO/BObasePage.js',
   },
   {
+    version: '1.7.2.5',
+    selector: 'kernel/common/BO/BObasePage.js',
+    filepath: '@versions/v172/BO/BObasePage.js',
+  },
+  {
     version: 'common',
     selector: 'kernel/common/BO/login/index.js',
     filepath: '@kernel/common/BO/login/index.js',
+  },
+  {
+    version: '1.7.2.5',
+    selector: 'kernel/common/BO/login/index.js',
+    filepath: '@versions/v172/BO/login/index.js',
   },
   {
     version: 'common',
@@ -41,6 +51,11 @@ module.exports = [
   },
   {
     version: '1.7.3.4',
+    selector: 'kernel/common/BO/modules/moduleManager/index.js',
+    filepath: '@versions/v173/BO/modules/moduleManager/index.js',
+  },
+  {
+    version: '1.7.2.5',
     selector: 'kernel/common/BO/modules/moduleManager/index.js',
     filepath: '@versions/v173/BO/modules/moduleManager/index.js',
   },
