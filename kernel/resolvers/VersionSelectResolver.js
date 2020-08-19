@@ -7,6 +7,12 @@ module.exports = class VersionSelectResolver {
     this.customConfigClassMap = customConfigClassMap;
   }
 
+  /**
+   * Get file path to require
+   * @param selector
+   * @param mapper
+   * @return {string}
+   */
   getFilePath(selector, mapper) {
     const custom = mapper.find(el => el.version === 'custom' && el.selector === selector);
     const specificVersion = mapper.find(el => el.version === this.version && el.selector === selector);
@@ -17,31 +23,43 @@ module.exports = class VersionSelectResolver {
     }
 
     if (undefined !== specificVersion) {
-      const filepath = this.getAbsolutePath(specificVersion.filepath);
-
-      return filepath;
+      return this.getAbsolutePath(specificVersion.filepath);
     }
 
-    const filepath = this.getAbsolutePath(common.filepath);
-
-    return filepath;
+    return this.getAbsolutePath(common.filepath);
   }
 
+  /**
+   * Get path to lib
+   * @param filepath
+   * @return {void|string}
+   */
   getAbsolutePath(filepath) {
     return filepath.replace('@', `${process.cwd()}/node_modules/prestashop_test_lib/`);
   }
 
+  /**
+   * Merge class maps
+   * @param configClassMap
+   * @param customConfigClassMap
+   * @return {*}
+   */
   arrayMerge(configClassMap, customConfigClassMap = []) {
     return configClassMap.concat(customConfigClassMap);
   }
 
+  /**
+   * Get file path and require it
+   * @param selector
+   * @return {any}
+   */
   require(selector) {
     // eslint-disable-next-line global-require,import/no-dynamic-require
     return require(
       this.getFilePath(
         selector,
-        // eslint-disable-next-line
-        this.customConfigClassMap !== null ? this.arrayMerge(configClassMap, this.customConfigClassMap) : configClassMap,
+        this.customConfigClassMap !== null
+          ? this.arrayMerge(configClassMap, this.customConfigClassMap) : configClassMap,
       ),
     );
   }
