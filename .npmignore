@@ -1,12 +1,8 @@
-.env
 .eslintrc.js
 .github
 .gitignore
 .mocharc.json
-docker-compose.yml
-mochawesome-report
+.npmignore
 node_modules
 README.md
-tests/units
-tests/ui
-
+tests/
