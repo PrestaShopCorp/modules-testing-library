@@ -2,18 +2,20 @@ require('module-alias/register');
 
 const {expect} = require('chai');
 const helper = require('@utils/helpers');
+
+// Get resolver
 const VersionSelectResolver = require('@resolvers/VersionSelectResolver');
-
-// Importing pages
-
-let browserContext;
-let page;
 
 const versionSelectResolver = new VersionSelectResolver(global.INSTALL.PS_VERSION);
 
+// Import pages
 const loginPage = versionSelectResolver.require('kernel/common/BO/login/index.js');
 const dashboardPage = versionSelectResolver.require('kernel/common/BO/dashboard/index.js');
 const moduleManagerPage = versionSelectResolver.require('kernel/common/BO/modules/moduleManager/index.js');
+
+// Browser vars
+let browserContext;
+let page;
 
 describe(`Check prestashop version ${global.INSTALL.PS_VERSION}`, async () => {
   // before and after functions

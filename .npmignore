@@ -8,4 +8,5 @@ mochawesome-report
 node_modules
 README.md
 tests/units
+tests/ui
 
