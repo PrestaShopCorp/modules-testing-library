@@ -1,6 +1,6 @@
 require('module-alias/register');
 
-const VersionSelectResolver = require('@resolvers/VersionSelectResolver.js');
+const VersionSelectResolver = require('@resolvers/versionSelectResolver.js');
 const assert = require('assert');
 const getRequireClassExtends = require('@unitTests/data/getFilePath/baseFilePath');
 const getRequireCustomClassExtends = require('@unitTests/data/getFilePath/customFilePath');
@@ -12,7 +12,7 @@ describe('Testing resolver retroCompact getRequire', () => {
       'kernel/common/BO/login/index.js',
       getRequireClassExtends,
     ),
-    `${process.cwd()}/node_modules/prestashop_test_lib/kernel/common/BO/login/index.js`,
+    '@kernel/common/BO/login/index.js',
     );
   });
 
@@ -22,7 +22,7 @@ describe('Testing resolver retroCompact getRequire', () => {
       'kernel/common/BO/login/index.js',
       getRequireClassExtends,
     ),
-    `${process.cwd()}/node_modules/prestashop_test_lib/versions/v178/BO/login/index.js`,
+    '@versions/v178/BO/login/index.js',
     );
   });
 
@@ -32,7 +32,7 @@ describe('Testing resolver retroCompact getRequire', () => {
       'kernel/common/BO/login/index.js',
       getRequireClassExtends,
     ),
-    `${process.cwd()}/node_modules/prestashop_test_lib/versions/v178/BO/login/index.js`,
+    '@versions/v178/BO/login/index.js',
     );
   });
 

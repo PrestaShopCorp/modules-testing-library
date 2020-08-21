@@ -1,5 +1,5 @@
 require('module-alias/register');
-const VersionSelectResolver = require('@resolvers/VersionSelectResolver');
+const VersionSelectResolver = require('@resolvers/versionSelectResolver');
 
 const versionSelectResolver = new VersionSelectResolver(global.INSTALL.PS_VERSION);
 const BOBasePage = versionSelectResolver.require('kernel/common/BO/BObasePage.js');

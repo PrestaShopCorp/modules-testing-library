@@ -23,10 +23,10 @@ module.exports = class VersionSelectResolver {
     }
 
     if (undefined !== specificVersion) {
-      return this.getAbsolutePath(specificVersion.filepath);
+      return specificVersion.filepath;
     }
 
-    return this.getAbsolutePath(common.filepath);
+    return common.filepath;
   }
 
   /**

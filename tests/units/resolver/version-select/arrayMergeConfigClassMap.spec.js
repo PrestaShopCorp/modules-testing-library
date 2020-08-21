@@ -1,6 +1,6 @@
 require('module-alias/register');
 
-const VersionSelectResolver = require('@resolvers/VersionSelectResolver.js');
+const VersionSelectResolver = require('@resolvers/versionSelectResolver.js');
 const baseArray = require('@unitTests/data/arrayMerge/baseArray');
 const mergeArray = require('@unitTests/data/arrayMerge/mergeArray');
 const resultArray = require('@unitTests/data/arrayMerge/resultArray');
