@@ -9,9 +9,9 @@ const VersionSelectResolver = require('@resolvers/versionSelectResolver');
 const versionSelectResolver = new VersionSelectResolver(global.INSTALL.PS_VERSION);
 
 // Import pages
-const loginPage = versionSelectResolver.require('kernel/common/BO/login/index.js');
-const dashboardPage = versionSelectResolver.require('kernel/common/BO/dashboard/index.js');
-const moduleManagerPage = versionSelectResolver.require('kernel/common/BO/modules/moduleManager/index.js');
+const loginPage = versionSelectResolver.require('BO/login/index.js');
+const dashboardPage = versionSelectResolver.require('BO/dashboard/index.js');
+const moduleManagerPage = versionSelectResolver.require('BO/modules/moduleManager/index.js');
 
 // Browser vars
 let browserContext;
