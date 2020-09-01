@@ -79,7 +79,7 @@ Each element is an object that contains 3 strings :
 
 Example: Module manager page rewrited for ps_version 1.7.1.2
 
-```json
+```js
 {
     version: '1.7.1.2', // PrestaShop version
     selector: 'BO/modules/moduleManager/index.js', // Module manager page in BO
