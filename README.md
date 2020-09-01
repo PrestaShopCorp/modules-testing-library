@@ -1,5 +1,5 @@
 <div align="center">
-<h1>React Testing Library</h1>
+<h1>PrestaShop modules Testing Library</h1>
 <p>Simple library to test PrestaShop modules.</p>
 </div>
 <hr/>
