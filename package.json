@@ -15,10 +15,9 @@
   "homepage": "https://github.com/PrestaShopCorp/prestashop_test_lib#readme",
   "scripts": {
     "ln": "rm -rf ./node_modules/prestashop_test_lib && ln -s .. ./node_modules/prestashop_test_lib",
-    "start:test": "yarn  ln && ./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
-    "start:test:ui": "yarn  ln &&  ./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
-    "start:test:units": "yarn  ln &&  ./node_modules/mocha/bin/mocha --recursive tests/units",
-    "start:test:lint": "eslint --ignore-path .gitignore .",
+    "allTests": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
+    "uiTests": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
+    "unitTests": "./node_modules/mocha/bin/mocha --recursive tests/units",
     "lint": "eslint  --fix --ignore-path .gitignore ."
   },
   "_moduleAliases": {
@@ -27,21 +26,18 @@
     "@utils": "kernel/utils",
     "@kernel": "kernel",
     "@unitTests": "tests/units",
-    "@uiTests":  "tests/ui"
+    "@uiTests": "tests/ui"
   },
   "dependencies": {
     "module-alias": "^2.2.2",
-    "js-image-generator": "^1.0.2",
     "playwright": "^1.1.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-string": "^1.5.0",
     "eslint-config-prestashop": "0.0.2",
-    "faker": "^4.1.0",
     "mocha": "^6.1.4",
     "mochawesome": "^2.3.0",
-    "pdfjs-dist": "^2.3.200",
     "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
