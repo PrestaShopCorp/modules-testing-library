@@ -6,9 +6,9 @@ const getRequireClassExtends = require('@unitTests/data/getFilePath/baseFilePath
 const getRequireCustomClassExtends = require('@unitTests/data/getFilePath/customFilePath');
 
 describe('Testing resolver retroCompact getRequire', () => {
-  it('should call common pathfile', () => {
+  it('should call common path file', () => {
     const versionSelectResolver = new VersionSelectResolver('177');
-    assert.equal(versionSelectResolver.getFilePath(
+    assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireClassExtends,
     ),
@@ -16,9 +16,9 @@ describe('Testing resolver retroCompact getRequire', () => {
     );
   });
 
-  it('should call specific version pathfile', () => {
+  it('should call specific version path file', () => {
     const versionSelectResolver = new VersionSelectResolver('1.7.8');
-    assert.equal(versionSelectResolver.getFilePath(
+    assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireClassExtends,
     ),
@@ -26,9 +26,9 @@ describe('Testing resolver retroCompact getRequire', () => {
     );
   });
 
-  it('should call specific version pathfile with directory', () => {
+  it('should call specific version path file with directory', () => {
     const versionSelectResolver = new VersionSelectResolver('1.7.8', getRequireClassExtends);
-    assert.equal(versionSelectResolver.getFilePath(
+    assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireClassExtends,
     ),
@@ -36,13 +36,13 @@ describe('Testing resolver retroCompact getRequire', () => {
     );
   });
 
-  it('should call custom pathfile', () => {
+  it('should call custom path file', () => {
     const versionSelectResolver = new VersionSelectResolver('177');
-    assert.equal(versionSelectResolver.getFilePath(
+    assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireCustomClassExtends,
     ),
-    `${process.cwd()}/myfile.js`,
+    `${process.cwd()}/myFile.js`,
     );
   });
 });

@@ -12,6 +12,6 @@ module.exports = [
   {
     version: 'custom',
     selector: 'BO/login/index.js',
-    filepath: 'myfile.js',
+    filepath: 'myFile.js',
   },
 ];
