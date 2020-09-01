@@ -1,4 +1,4 @@
-const CommonBOBasePage = require('@kernel/common/BO/BObasePage');
+const CommonBOBasePage = require('@versions/common/BO/BObasePage');
 
 module.exports = class BOBasePage extends CommonBOBasePage {
   constructor() {

@@ -32,7 +32,7 @@ module.exports = class VersionSelectResolver {
   /**
    * Get path to lib
    * @param filepath
-   * @return {void|string}
+   * @return {string}
    */
   getAbsolutePath(filepath) {
     return filepath.replace('@', `${process.cwd()}/node_modules/prestashop_test_lib/`);
@@ -42,7 +42,7 @@ module.exports = class VersionSelectResolver {
    * Merge class maps
    * @param configClassMap
    * @param customConfigClassMap
-   * @return {*}
+   * @return {[]}
    */
   arrayMerge(configClassMap, customConfigClassMap = []) {
     return configClassMap.concat(customConfigClassMap);

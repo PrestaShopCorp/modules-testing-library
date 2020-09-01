@@ -1,4 +1,4 @@
-const CommonLoginPage = require('@kernel/common/BO/login');
+const CommonLoginPage = require('@versions/common/BO/login');
 
 class Login extends CommonLoginPage.constructor {
   constructor() {

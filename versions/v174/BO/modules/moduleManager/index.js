@@ -1,4 +1,4 @@
-const CommonModuleManagerPage = require('@kernel/common/BO/modules/moduleManager');
+const CommonModuleManagerPage = require('@versions/common/BO/modules/moduleManager');
 
 class ModuleManager extends CommonModuleManagerPage.constructor {
   constructor() {

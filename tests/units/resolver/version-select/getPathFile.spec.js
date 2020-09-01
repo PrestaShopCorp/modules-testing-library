@@ -12,7 +12,7 @@ describe('Testing resolver retroCompact getRequire', () => {
       'BO/login/index.js',
       getRequireClassExtends,
     ),
-    '@kernel/common/BO/login/index.js',
+    '@versions/common/BO/login/index.js',
     );
   });
 
