@@ -1,17 +1,24 @@
 module.exports = [
   {
-    version: 'common',
-    selector: 'BO/login/index.js',
-    filepath: '@versions/common/BO/login/index.js',
+    file: 'BO/BObasePage.js',
+    combinations: {
+      common: {
+        type: 'filepath',
+        target: '@versions/common/BO/BObasePage.js',
+      },
+    },
   },
   {
-    version: '1.7.8',
-    selector: 'BO/login/index.js',
-    filepath: '@versions/v178/BO/login/index.js',
-  },
-  {
-    version: 'custom',
-    selector: 'BO/login/index.js',
-    filepath: 'myFile.js',
+    file: 'BO/login/index.js',
+    combinations: {
+      common: {
+        type: 'filepath',
+        target: '@versions/common/BO/login/index.js',
+      },
+      '1.7.7.0': {
+        type: 'filepath',
+        target: 'myFile.js',
+      },
+    },
   },
 ];

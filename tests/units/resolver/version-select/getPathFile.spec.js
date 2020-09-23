@@ -7,7 +7,7 @@ const getRequireCustomClassExtends = require('@unitTests/data/getFilePath/custom
 
 describe('Testing resolver retroCompact getRequire', () => {
   it('should call common path file', () => {
-    const versionSelectResolver = new VersionSelectResolver('177');
+    const versionSelectResolver = new VersionSelectResolver('1.7.7.0');
     assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireClassExtends,
@@ -17,7 +17,7 @@ describe('Testing resolver retroCompact getRequire', () => {
   });
 
   it('should call specific version path file', () => {
-    const versionSelectResolver = new VersionSelectResolver('1.7.8');
+    const versionSelectResolver = new VersionSelectResolver('1.7.8.0');
     assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireClassExtends,
@@ -27,7 +27,7 @@ describe('Testing resolver retroCompact getRequire', () => {
   });
 
   it('should call specific version path file with directory', () => {
-    const versionSelectResolver = new VersionSelectResolver('1.7.8', getRequireClassExtends);
+    const versionSelectResolver = new VersionSelectResolver('1.7.8.0', getRequireClassExtends);
     assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireClassExtends,
@@ -37,12 +37,12 @@ describe('Testing resolver retroCompact getRequire', () => {
   });
 
   it('should call custom path file', () => {
-    const versionSelectResolver = new VersionSelectResolver('177');
+    const versionSelectResolver = new VersionSelectResolver('1.7.7.0');
     assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireCustomClassExtends,
     ),
-    `${process.cwd()}/myFile.js`,
+    'myFile.js',
     );
   });
 });

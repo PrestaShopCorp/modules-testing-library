@@ -37,15 +37,15 @@ module.exports = [
       },
       '1.7.2.5': {
         type: 'filepath',
-        filepath: '@versions/v172/BO/login/index.js',
+        target: '@versions/v172/BO/login/index.js',
       },
       '1.7.1.2': {
         type: 'version',
-        filepath: '1.7.2.5',
+        target: '1.7.2.5',
       },
       '1.7.0.6': {
         type: 'version',
-        filepath: '1.7.2.5',
+        target: '1.7.2.5',
       },
     },
   },
