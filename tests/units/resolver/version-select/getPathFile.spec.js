@@ -56,6 +56,22 @@ describe('Testing resolver retroCompact getRequire', () => {
     );
   });
 
+  it('should not find the file and throw an error', () => {
+    const versionSelectResolver = new VersionSelectResolver('1.7.8.0');
+    function resolveFilePathNonExistent() {
+      return versionSelectResolver.getFilePath(
+        'BO/orders/index.js',
+        getRequireClassExtends,
+      );
+    }
+    assert.throws(resolveFilePathNonExistent,
+      {
+        name: 'Error',
+        message: "No reference found for file 'BO/orders/index.js'",
+      },
+    );
+  });
+
   it('should rebound too much and throws an error', () => {
     const versionSelectResolver = new VersionSelectResolver('1.7.0.6');
     function resolveFilePathWithError() {
@@ -65,8 +81,11 @@ describe('Testing resolver retroCompact getRequire', () => {
       );
     }
     assert.throws(resolveFilePathWithError,
-      // eslint-disable-next-line max-len
-      "Error: Couldn't find a type file after 5 recursive searches for version '1.7.0.6' and file 'BO/login/index.js' (stopped at version '1.7.5.2')",
+      {
+        name: 'Error',
+        // eslint-disable-next-line max-len
+        message: "Couldn't find a type file after 5 recursive searches for version '1.7.0.6' and file 'BO/login/index.js' (stopped at version '1.7.5.2')"
+      },
     );
   });
 });

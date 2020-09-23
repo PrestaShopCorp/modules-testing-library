@@ -20,7 +20,7 @@ module.exports = class VersionSelectResolver {
     if (mapper.find(el => el.file === file) === undefined) {
       throw new Error(`No reference found for file '${file}'`);
     }
-    // do we have a version for this file ? If not, do we have a 'common' (= base) reference ?
+
     const {combinations} = mapper.find(el => el.file === file);
 
     if (combinations[this.version] === undefined) {
