@@ -9,24 +9,29 @@ module.exports = class VersionSelectResolver {
 
   /**
    * Get file path to require
-   * @param selector
+   * @param file
    * @param mapper
    * @return {string}
    */
-  getFilePath(selector, mapper) {
-    const custom = mapper.find(el => el.version === 'custom' && el.selector === selector);
-    const specificVersion = mapper.find(el => el.version === this.version && el.selector === selector);
-    const common = mapper.find(el => el.version === 'common' && el.selector === selector);
-
-    if (undefined !== custom) {
-      return `${process.cwd()}/${custom.filepath}`;
+  getFilePath(file, mapper) {
+    // do we have a reference for this file ?
+    if (mapper[file] === undefined) {
+      throw new Error(`no reference found for file ${file}`);
     }
 
-    if (undefined !== specificVersion) {
-      return specificVersion.filepath;
+    // do we have a version for this file ?
+    const {combinations} = mapper[file];
+    if (combinations[this.version] === undefined) {
+      throw new Error(`no reference found for version ${this.version} for file ${file}`);
     }
 
-    return common.filepath;
+    // if this version redirects us to a new version, get this one !
+    if (combinations[this.version].type === 'version') {
+      return combinations[combinations[this.version].target].target;
+    }
+
+    // return the correct target for this version and this file
+    return combinations[this.version].target;
   }
 
   /**
