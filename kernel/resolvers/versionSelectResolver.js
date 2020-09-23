@@ -35,18 +35,16 @@ module.exports = class VersionSelectResolver {
 
     // if this version redirects us to a new version, recursively search for a type = file !
     let curVersion = this.version;
-    let iterator = 0;
+    let iterator = 1;
+    const maxIterations = 5;
     while (combinations[curVersion].type === 'version') {
-      console.log(`iterator #${iterator}`);
-      console.log(`Version '${this.version}' for file '${file}' redirected to '${combinations[curVersion].target}'`);
       curVersion = combinations[curVersion].target;
       iterator += 1;
-      if (iterator > 5) {
-        throw new Error(`Couldn't find a type file after 5 recursive searches for version '${this.version}' and 
-        file '${file}' (stopped at version '${curVersion}')`);
+      if (iterator > maxIterations) {
+        throw new Error(`Couldn't find a type file after ${maxIterations} recursive searches for `
+        + `version '${this.version}' and file '${file}' (stopped at version '${curVersion}')`);
       }
     }
-
     // return the correct target for this version and this file
     return combinations[curVersion].target;
   }
