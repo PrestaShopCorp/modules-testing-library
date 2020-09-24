@@ -193,6 +193,16 @@ After that, you can use the resolver to require the pages needed using the selec
 // Import BO login page
 const loginPage = versionSelectResolver.require('BO/login/index.js');
 ```
+### Logic for requiring
+
+The library will try to get the `filepath` for the class and the version you requested.
+If it doesn't find your class, it will throw an error.
+If the version you requested rebounds on another version, it will then follow the lead until it finds a `filepath` entry
+OR rebounds more than 5 times (that's why you should always target the higher version filepath you can, and not ping-pong
+from version to version).
+If it doesn't find a specific version entry for your class, it will require the `latest` one.
+Be careful: the `latest` entry CANNOT have a `version`, it MUST be a `filepath` since it's the default fallback. It will
+throw an error if that's the case.
 
 #### Example
 
