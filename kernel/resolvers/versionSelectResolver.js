@@ -17,28 +17,33 @@ module.exports = class VersionSelectResolver {
    */
   getFilePath(file, mapper) {
     // do we have a reference for this file ?
-    if (mapper.find(el => el.file === file) === undefined) {
+    const referenceExists = mapper.find(el => el.file === file);
+
+    if (!referenceExists) {
       throw new Error(`No reference found for file '${file}'`);
     }
 
-    const {combinations} = mapper.find(el => el.file === file);
+    const {combinations} = referenceExists;
 
-    if (combinations[this.version] === undefined) {
-      if (combinations.common === undefined) {
+    if (!combinations[this.version]) {
+      if (!combinations.common) {
         throw new Error(`No 'common' reference found for file '${file}'`);
       }
-      if (combinations.common.type === 'version') {
+      if (combinations.common.version) {
         throw new Error(`You cannot have a 'version' type for the 'common' version ! (file '${file}')`);
       }
-      return combinations.common.target;
+      if (!combinations.common.filepath) {
+        throw new Error(`You need a 'filepath' entry for the 'common' version ! (file '${file}')`);
+      }
+      return combinations.common.filepath;
     }
 
     // if this version redirects us to a new version, recursively search for a type = file !
     let curVersion = this.version;
     let iterator = 1;
     const maxIterations = 5;
-    while (combinations[curVersion].type === 'version') {
-      curVersion = combinations[curVersion].target;
+    while (combinations[curVersion].version) {
+      curVersion = combinations[curVersion].version;
       iterator += 1;
       if (iterator > maxIterations) {
         throw new Error(`Couldn't find a type file after ${maxIterations} recursive searches for `
@@ -46,7 +51,7 @@ module.exports = class VersionSelectResolver {
       }
     }
     // return the correct target for this version and this file
-    return combinations[curVersion].target;
+    return combinations[curVersion].filepath;
   }
 
   /**

@@ -3,28 +3,31 @@ module.exports = [
     file: 'BO/BObasePage.js',
     combinations: {
       common: {
-        type: 'filepath',
-        target: '@versions/common/BO/BObasePage.js',
+        filepath: '@versions/common/BO/BObasePage.js',
       },
-      '1.7.8.0': {
-        type: 'filepath',
-        target: '@versions/v178/BO/BObasePage.js',
+      '1.7.7.0': {
+        filepath: '@versions/v178/BO/BObasePage.js',
+      },
+      '1.7.6.8': {
+        version: '1.7.7.0',
+      },
+      '1.7.5.2': {
+        version: '1.7.7.0',
+      },
+      '1.7.4.4': {
+        version: '1.7.7.0',
       },
       '1.7.3.4': {
-        type: 'filepath',
-        target: '@versions/v173/BO/BObasePage.js',
+        filepath: '@versions/v173/BO/BObasePage.js',
       },
       '1.7.2.5': {
-        type: 'filepath',
-        target: '@versions/v172/BO/BObasePage.js',
+        filepath: '@versions/v172/BO/BObasePage.js',
       },
       '1.7.1.2': {
-        type: 'version',
-        target: '1.7.2.5',
+        version: '1.7.2.5',
       },
       '1.7.0.6': {
-        type: 'version',
-        target: '1.7.2.5',
+        version: '1.7.2.5',
       },
     },
   },
@@ -32,20 +35,31 @@ module.exports = [
     file: 'BO/login/index.js',
     combinations: {
       common: {
-        type: 'filepath',
-        target: '@versions/common/BO/login/index.js',
+        filepath: '@versions/common/BO/login/index.js',
+      },
+      '1.7.7.0': {
+        filepath: '@versions/v177/BO/login/index.js',
+      },
+      '1.7.6.8': {
+        version: '1.7.7.0',
+      },
+      '1.7.5.2': {
+        version: '1.7.7.0',
+      },
+      '1.7.4.4': {
+        version: '1.7.7.0',
+      },
+      '1.7.3.4': {
+        version: '1.7.7.0',
       },
       '1.7.2.5': {
-        type: 'filepath',
-        target: '@versions/v172/BO/login/index.js',
+        filepath: '@versions/v172/BO/login/index.js',
       },
       '1.7.1.2': {
-        type: 'version',
-        target: '1.7.2.5',
+        version: '1.7.2.5',
       },
       '1.7.0.6': {
-        type: 'version',
-        target: '1.7.2.5',
+        version: '1.7.2.5',
       },
     },
   },
@@ -53,8 +67,31 @@ module.exports = [
     file: 'BO/dashboard/index.js',
     combinations: {
       common: {
-        type: 'filepath',
-        target: '@versions/common/BO/dashboard/index.js',
+        filepath: '@versions/common/BO/dashboard/index.js',
+      },
+      '1.7.7.0': {
+        filepath: '@versions/v177/BO/dashboard/index.js',
+      },
+      '1.7.6.8': {
+        version: '1.7.7.0',
+      },
+      '1.7.5.2': {
+        version: '1.7.7.0',
+      },
+      '1.7.4.4': {
+        version: '1.7.7.0',
+      },
+      '1.7.3.4': {
+        version: '1.7.7.0',
+      },
+      '1.7.2.5': {
+        version: '1.7.7.0',
+      },
+      '1.7.1.2': {
+        version: '1.7.7.0',
+      },
+      '1.7.0.6': {
+        version: '1.7.7.0',
       },
     },
   },
@@ -62,8 +99,31 @@ module.exports = [
     file: 'BO/modules/moduleCatalog/index.js',
     combinations: {
       common: {
-        type: 'filepath',
-        target: '@versions/common/BO/modules/moduleCatalog/index.js',
+        filepath: '@versions/common/BO/modules/moduleCatalog/index.js',
+      },
+      '1.7.7.0': {
+        filepath: '@versions/v177/BO/modules/moduleCatalog/index.js',
+      },
+      '1.7.6.8': {
+        version: '1.7.7.0',
+      },
+      '1.7.5.2': {
+        version: '1.7.7.0',
+      },
+      '1.7.4.4': {
+        version: '1.7.7.0',
+      },
+      '1.7.3.4': {
+        version: '1.7.7.0',
+      },
+      '1.7.2.5': {
+        version: '1.7.7.0',
+      },
+      '1.7.1.2': {
+        version: '1.7.7.0',
+      },
+      '1.7.0.6': {
+        version: '1.7.7.0',
       },
     },
   },
@@ -71,28 +131,32 @@ module.exports = [
     file: 'BO/modules/moduleManager/index.js',
     combinations: {
       common: {
-        type: 'filepath',
-        target: '@versions/common/BO/modules/moduleManager/index.js',
+        filepath: '@versions/common/BO/modules/moduleManager/index.js',
+      },
+      '1.7.7.0': {
+        filepath: '@versions/v177/BO/modules/moduleManager/index.js',
+      },
+      '1.7.6.8': {
+        version: '1.7.7.0',
+      },
+      '1.7.5.2': {
+        version: '1.7.7.0',
       },
       '1.7.4.4': {
         type: 'filepath',
         target: '@versions/v174/BO/modules/moduleManager/index.js',
       },
       '1.7.3.4': {
-        type: 'filepath',
-        target: '@versions/v173/BO/modules/moduleManager/index.js',
+        filepath: '@versions/v173/BO/modules/moduleManager/index.js',
       },
       '1.7.2.5': {
-        type: 'version',
-        target: '1.7.3.4',
+        version: '1.7.3.4',
       },
       '1.7.1.2': {
-        type: 'filepath',
-        target: '@versions/v171/BO/modules/moduleManager/index.js',
+        filepath: '@versions/v171/BO/modules/moduleManager/index.js',
       },
       '1.7.0.6': {
-        type: 'version',
-        target: '1.7.1.2',
+        version: '1.7.1.2',
       },
     },
   },
@@ -100,8 +164,31 @@ module.exports = [
     file: 'BO/modules/moduleConfiguration/index.js',
     combinations: {
       common: {
-        type: 'filepath',
-        target: '@versions/common/BO/modules/moduleConfiguration/index.js',
+        filepath: '@versions/common/BO/modules/moduleConfiguration/index.js',
+      },
+      '1.7.7.0': {
+        filepath: '@versions/v177/BO/modules/moduleConfiguration/index.js',
+      },
+      '1.7.6.8': {
+        version: '1.7.7.0',
+      },
+      '1.7.5.2': {
+        version: '1.7.7.0',
+      },
+      '1.7.4.4': {
+        version: '1.7.7.0',
+      },
+      '1.7.3.4': {
+        version: '1.7.7.0',
+      },
+      '1.7.2.5': {
+        version: '1.7.7.0',
+      },
+      '1.7.1.2': {
+        version: '1.7.7.0',
+      },
+      '1.7.0.6': {
+        version: '1.7.7.0',
       },
     },
   },
