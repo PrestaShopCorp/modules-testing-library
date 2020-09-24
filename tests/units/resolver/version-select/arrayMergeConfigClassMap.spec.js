@@ -9,7 +9,7 @@ const {expect} = require('chai');
 
 describe('Testing resolver retroCompact arrayMerge', () => {
   it('I have not file override configClassMap', () => {
-    const versionSelectResolver = new VersionSelectResolver('177');
+    const versionSelectResolver = new VersionSelectResolver('1.7.7.0');
     expect(
       versionSelectResolver.arrayMerge(
         baseArray,
@@ -20,7 +20,7 @@ describe('Testing resolver retroCompact arrayMerge', () => {
   });
 
   it('I have override file configClassMap', () => {
-    const versionSelectResolver = new VersionSelectResolver('177');
+    const versionSelectResolver = new VersionSelectResolver('1.7.7.0');
     expect(
       versionSelectResolver.arrayMerge(
         baseArray,

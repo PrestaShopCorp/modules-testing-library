@@ -5,9 +5,11 @@ const assert = require('assert');
 const getRequireClassExtends = require('@unitTests/data/getFilePath/baseFilePath');
 const getRequireCustomClassExtends = require('@unitTests/data/getFilePath/customFilePath');
 
+// These tests call directly `getFilePath` and pass it the getRequireClassExtends map file
+
 describe('Testing resolver retroCompact getRequire', () => {
-  it('should call common path file', () => {
-    const versionSelectResolver = new VersionSelectResolver('1.7.9.0');
+  it('should call common path file when requesting unknown version 1.7.3.1', () => {
+    const versionSelectResolver = new VersionSelectResolver('1.7.3.1');
     assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireClassExtends,
@@ -16,23 +18,23 @@ describe('Testing resolver retroCompact getRequire', () => {
     );
   });
 
-  it('should call specific version path file', () => {
-    const versionSelectResolver = new VersionSelectResolver('1.7.8.0');
+  it('should call specific version path file for version 1.7.7.0', () => {
+    const versionSelectResolver = new VersionSelectResolver('1.7.7.0');
     assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireClassExtends,
     ),
-    '@versions/v178/BO/login/index.js',
+    '@versions/v177/BO/login/index.js',
     );
   });
 
-  it('should call specific version path file with directory', () => {
-    const versionSelectResolver = new VersionSelectResolver('1.7.8.0', getRequireClassExtends);
+  it('should call specific version path file for version 1.7.0.6 ', () => {
+    const versionSelectResolver = new VersionSelectResolver('1.7.0.6');
     assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireClassExtends,
     ),
-    '@versions/v178/BO/login/index.js',
+    '@versions/v170/BO/login/index.js',
     );
   });
 
@@ -52,12 +54,12 @@ describe('Testing resolver retroCompact getRequire', () => {
       'BO/login/index.js',
       getRequireClassExtends,
     ),
-    '@versions/v178/BO/login/index.js',
+    '@versions/v177/BO/login/index.js',
     );
   });
 
-  it('should not find the file and throw an error', () => {
-    const versionSelectResolver = new VersionSelectResolver('1.7.8.0');
+  it('should not find the file Orders and throw an error', () => {
+    const versionSelectResolver = new VersionSelectResolver('1.7.7.0');
     function resolveFilePathNonExistent() {
       return versionSelectResolver.getFilePath(
         'BO/orders/index.js',
@@ -72,8 +74,8 @@ describe('Testing resolver retroCompact getRequire', () => {
     );
   });
 
-  it('should rebound too much and throws an error', () => {
-    const versionSelectResolver = new VersionSelectResolver('1.7.0.6');
+  it('should rebound too much and throw an error', () => {
+    const versionSelectResolver = new VersionSelectResolver('1.7.1.2');
     function resolveFilePathWithError() {
       return versionSelectResolver.getFilePath(
         'BO/login/index.js',
@@ -84,7 +86,7 @@ describe('Testing resolver retroCompact getRequire', () => {
       {
         name: 'Error',
         // eslint-disable-next-line max-len
-        message: "Couldn't find a type file after 5 recursive searches for version '1.7.0.6' and file 'BO/login/index.js' (stopped at version '1.7.5.2')"
+        message: "Couldn't find a type file after 5 recursive searches for version '1.7.1.2' and file 'BO/login/index.js' (stopped at version '1.7.6.8')",
       },
     );
   });
