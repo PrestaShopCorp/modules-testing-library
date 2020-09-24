@@ -18,8 +18,8 @@ module.exports = [
   {
     file: 'BO/dashboard/index.js',
     combinations: {
-      common: {
-        filepath: '@versions/common/BO/dashboard/index.js',
+      latest: {
+        filepath: '@versions/latest/BO/dashboard/index.js',
       },
     },
   },

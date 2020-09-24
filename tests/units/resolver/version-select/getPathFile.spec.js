@@ -8,13 +8,13 @@ const getRequireCustomClassExtends = require('@unitTests/data/getFilePath/custom
 // These tests call directly `getFilePath` and pass it the getRequireClassExtends map file
 
 describe('Testing resolver retroCompact getRequire', () => {
-  it('should call common path file when requesting unknown version 1.7.3.1', () => {
+  it('should call latest path file when requesting unknown version 1.7.3.1', () => {
     const versionSelectResolver = new VersionSelectResolver('1.7.3.1');
     assert.strictEqual(versionSelectResolver.getFilePath(
       'BO/login/index.js',
       getRequireClassExtends,
     ),
-    '@versions/common/BO/login/index.js',
+    '@versions/latest/BO/login/index.js',
     );
   });
 

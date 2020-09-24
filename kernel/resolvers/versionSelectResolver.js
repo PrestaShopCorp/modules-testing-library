@@ -26,16 +26,16 @@ module.exports = class VersionSelectResolver {
     const {combinations} = referenceExists;
 
     if (!combinations[this.version]) {
-      if (!combinations.common) {
-        throw new Error(`No 'common' reference found for file '${file}'`);
+      if (!combinations.latest) {
+        throw new Error(`No 'latest' reference found for file '${file}'`);
       }
-      if (combinations.common.version) {
-        throw new Error(`You cannot have a 'version' type for the 'common' version ! (file '${file}')`);
+      if (combinations.latest.version) {
+        throw new Error(`You cannot have a 'version' type for the 'latest' version ! (file '${file}')`);
       }
-      if (!combinations.common.filepath) {
-        throw new Error(`You need a 'filepath' entry for the 'common' version ! (file '${file}')`);
+      if (!combinations.latest.filepath) {
+        throw new Error(`You need a 'filepath' entry for the 'latest' version ! (file '${file}')`);
       }
-      return combinations.common.filepath;
+      return combinations.latest.filepath;
     }
 
     // if this version redirects us to a new version, recursively search for a type = file !

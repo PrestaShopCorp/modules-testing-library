@@ -2,8 +2,8 @@ module.exports = [
   {
     file: 'BO/BObasePage.js',
     combinations: {
-      common: {
-        filepath: '@versions/common/BO/BObasePage.js',
+      latest: {
+        filepath: '@versions/latest/BO/BObasePage.js',
       },
       '1.7.7.0': {
         filepath: '@versions/v178/BO/BObasePage.js',
@@ -34,8 +34,8 @@ module.exports = [
   {
     file: 'BO/login/index.js',
     combinations: {
-      common: {
-        filepath: '@versions/common/BO/login/index.js',
+      latest: {
+        filepath: '@versions/latest/BO/login/index.js',
       },
       '1.7.7.0': {
         filepath: '@versions/v177/BO/login/index.js',
@@ -66,8 +66,8 @@ module.exports = [
   {
     file: 'BO/dashboard/index.js',
     combinations: {
-      common: {
-        filepath: '@versions/common/BO/dashboard/index.js',
+      latest: {
+        filepath: '@versions/latest/BO/dashboard/index.js',
       },
       '1.7.7.0': {
         filepath: '@versions/v177/BO/dashboard/index.js',
@@ -98,8 +98,8 @@ module.exports = [
   {
     file: 'BO/modules/moduleCatalog/index.js',
     combinations: {
-      common: {
-        filepath: '@versions/common/BO/modules/moduleCatalog/index.js',
+      latest: {
+        filepath: '@versions/latest/BO/modules/moduleCatalog/index.js',
       },
       '1.7.7.0': {
         filepath: '@versions/v177/BO/modules/moduleCatalog/index.js',
@@ -130,8 +130,8 @@ module.exports = [
   {
     file: 'BO/modules/moduleManager/index.js',
     combinations: {
-      common: {
-        filepath: '@versions/common/BO/modules/moduleManager/index.js',
+      latest: {
+        filepath: '@versions/latest/BO/modules/moduleManager/index.js',
       },
       '1.7.7.0': {
         filepath: '@versions/v177/BO/modules/moduleManager/index.js',
@@ -162,8 +162,8 @@ module.exports = [
   {
     file: 'BO/modules/moduleConfiguration/index.js',
     combinations: {
-      common: {
-        filepath: '@versions/common/BO/modules/moduleConfiguration/index.js',
+      latest: {
+        filepath: '@versions/latest/BO/modules/moduleConfiguration/index.js',
       },
       '1.7.7.0': {
         filepath: '@versions/v177/BO/modules/moduleConfiguration/index.js',
