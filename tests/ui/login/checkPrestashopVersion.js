@@ -35,7 +35,7 @@ describe(`Check prestashop version ${global.INSTALL.PS_VERSION}`, async () => {
     await expect(pageTitle).to.contains(loginPage.pageTitle);
   });
 
-  it('should check ps version', async () => {
+  it('should check PS version', async () => {
     const psVersion = await loginPage.getPrestashopVersion(page);
     await expect(psVersion).to.contains(global.INSTALL.PS_VERSION);
   });
