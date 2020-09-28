@@ -11,6 +11,7 @@ Supported patch versions:
 - 1.7.5.2
 - 1.7.6.8
 - 1.7.7.0
+- 1.7.8.0
  */
 
 module.exports = class VersionSelectResolver {
