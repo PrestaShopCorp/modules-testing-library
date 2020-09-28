@@ -4,7 +4,10 @@ class ModuleManager extends BOBasePage {
   constructor() {
     super();
 
-    this.pageTitle = 'Module manager •';
+    // @override title
+    this.pageTitle = 'Module selection';
+
+    this.pageTitleH2 = 'h2.title';
 
     // Selectors
     this.searchModuleTagInput = '#search-input-group input.pstaggerAddTagInput';
@@ -68,6 +71,16 @@ class ModuleManager extends BOBasePage {
    */
   isModuleEnabled(page, moduleName) {
     return this.elementNotVisible(page, this.disableModuleButton(moduleName), 1000);
+  }
+
+  /**
+   * @override
+   * Get page title
+   * @param page
+   * @returns {Promise<string>}
+   */
+  async getPageTitle(page) {
+    return this.getTextContent(page, this.pageTitleH2);
   }
 }
 

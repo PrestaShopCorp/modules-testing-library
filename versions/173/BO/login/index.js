@@ -9,7 +9,7 @@ class Login extends BOBasePage {
 
     // Login header selectors
     this.loginHeaderBlock = '#login-header';
-    this.psVersionBlock = `${this.loginHeaderBlock} div.text-center`;
+    this.psVersionBlock = `${this.loginHeaderBlock} > div.text-center`;
 
     // Login Form selectors
     this.emailInput = '#email';

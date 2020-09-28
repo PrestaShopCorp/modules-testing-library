@@ -123,7 +123,7 @@ module.exports = class BOBasePage extends CommonPage {
     // Multistore
     this.multistoreLink = '#subtab-AdminShopGroup';
 
-    this.sideMenuActiveLink = link => `${link}.-active`;
+    this.sideMenuActiveLink = link => `${link}.link-active`;
 
     // welcome module
     this.onboardingCloseButton = 'button.onboarding-button-shut-down';

@@ -6,7 +6,7 @@ const helper = require('@utils/helpers');
 // Get resolver
 const VersionSelectResolver = require('@resolvers/versionSelectResolver');
 
-const versionSelectResolver = new VersionSelectResolver(global.INSTALL.PS_VERSION);
+const versionSelectResolver = new VersionSelectResolver(global.PS_VERSION);
 
 // Import pages
 const loginPage = versionSelectResolver.require('BO/login/index.js');
@@ -17,7 +17,7 @@ const moduleManagerPage = versionSelectResolver.require('BO/modules/moduleManage
 let browserContext;
 let page;
 
-describe(`Check prestashop version ${global.INSTALL.PS_VERSION}`, async () => {
+describe(`Check prestashop version ${global.PS_VERSION}`, async () => {
   // before and after functions
   before(async function () {
     browserContext = await helper.createBrowserContext(this.browser);
@@ -37,11 +37,12 @@ describe(`Check prestashop version ${global.INSTALL.PS_VERSION}`, async () => {
 
   it('should check PS version', async () => {
     const psVersion = await loginPage.getPrestashopVersion(page);
-    await expect(psVersion).to.contains(global.INSTALL.PS_VERSION);
+    await expect(psVersion).to.contains(global.PS_VERSION);
   });
 
   it('should login into BO', async () => {
     await loginPage.login(page);
+    await dashboardPage.closeOnboardingModal(page);
 
     const pageTitle = await dashboardPage.getPageTitle(page);
     await expect(pageTitle).to.contains(dashboardPage.pageTitle);

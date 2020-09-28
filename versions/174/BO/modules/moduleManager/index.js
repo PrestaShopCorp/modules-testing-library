@@ -4,7 +4,7 @@ class ModuleManager extends BOBasePage {
   constructor() {
     super();
 
-    this.pageTitle = 'Module manager •';
+    this.pageTitle = 'Manage installed modules •';
 
     // Selectors
     this.searchModuleTagInput = '#search-input-group input.pstaggerAddTagInput';
