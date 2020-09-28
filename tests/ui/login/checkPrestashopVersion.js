@@ -17,6 +17,10 @@ const moduleManagerPage = versionSelectResolver.require('BO/modules/moduleManage
 let browserContext;
 let page;
 
+const moduleName = 'Advertising block';
+const moduleTag = 'ps_advertising';
+const moduleFilepath = `${process.cwd()}/tests/ui/data/ps_advertising.zip`;
+
 describe(`Check prestashop version ${global.PS_VERSION}`, async () => {
   // before and after functions
   before(async function () {
@@ -57,5 +61,26 @@ describe(`Check prestashop version ${global.PS_VERSION}`, async () => {
 
     const pageTitle = await moduleManagerPage.getPageTitle(page);
     await expect(pageTitle).to.contains(moduleManagerPage.pageTitle);
+  });
+
+  it('should upload the module using the modal', async () => {
+    const result = await moduleManagerPage.uploadModule(page, moduleFilepath);
+    await expect(result).to.be.true;
+  });
+
+  it('should check that the module was installed', async () => {
+    await page.click(moduleManagerPage.uploadModuleModalCloseButton);
+    await dashboardPage.goToSubMenu(
+      page,
+      dashboardPage.modulesParentLink,
+      dashboardPage.moduleManagerLink,
+    );
+    const isModuleVisible = await moduleManagerPage.searchModule(page, moduleTag, moduleName);
+    await expect(isModuleVisible).to.be.true;
+  });
+
+  it('should check that the module is enabled', async () => {
+    const isModuleEnabled = await moduleManagerPage.isModuleEnabled(page, moduleName);
+    await expect(isModuleEnabled).to.be.true;
   });
 });

@@ -25,6 +25,15 @@ class ModuleManager extends BOBasePage {
     this.categoriesSelectDiv = '#categories';
     this.categoriesDropdownDiv = 'div.ps-dropdown-menu.dropdown-menu.module-category-selector';
     this.categoryDropdownItem = cat => `${this.categoriesDropdownDiv} li[data-category-display-name='${cat}']`;
+    // Upload
+    this.uploadModuleButton = '#page-header-desc-configuration-add_module';
+    this.uploadModuleModal = '#module-modal-import';
+    this.uploadModuleModalCloseButton = '#module-modal-import-closing-cross';
+    this.uploadModuleModalFileInput = '#importDropzone > input';
+    this.uploadModuleModalProcessing = '#importDropzone > div.module-import-processing';
+    this.uploadModuleModalFailure = '#importDropzone > div.module-import-failure';
+    this.uploadModuleModalSuccess = '#importDropzone > div.module-import-success';
+    this.uploadModuleModalConfigureButton = '#importDropzone > div.module-import-success > a';
   }
 
   /*
@@ -68,6 +77,24 @@ class ModuleManager extends BOBasePage {
    */
   isModuleEnabled(page, moduleName) {
     return this.elementNotVisible(page, this.disableModuleButton(moduleName), 1000);
+  }
+
+  /**
+   * Upload a module and returns a success or failure
+   * @param page
+   * @param filePath
+   * @returns {Promise<boolean>}
+   */
+  async uploadModule(page, filePath) {
+    await page.click(this.uploadModuleButton);
+    await this.waitForVisibleSelector(page, this.uploadModuleModal);
+    const handle = await page.$(this.uploadModuleModalFileInput);
+    await handle.setInputFiles(filePath);
+    await page.waitForSelector(this.uploadModuleModalProcessing, {state: 'hidden'});
+    if (await this.elementVisible(page, this.uploadModuleModalFailure)) {
+      return false;
+    }
+    return true;
   }
 }
 
