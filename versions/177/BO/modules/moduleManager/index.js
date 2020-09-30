@@ -91,10 +91,7 @@ class ModuleManager extends BOBasePage {
     const handle = await page.$(this.uploadModuleModalFileInput);
     await handle.setInputFiles(filePath);
     await page.waitForSelector(this.uploadModuleModalProcessing, {state: 'hidden'});
-    if (await this.elementVisible(page, this.uploadModuleModalFailure)) {
-      return false;
-    }
-    return true;
+    return this.elementVisible(page, this.uploadModuleModalFailure);
   }
 }
 
