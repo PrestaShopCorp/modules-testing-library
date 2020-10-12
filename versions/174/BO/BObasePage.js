@@ -1,4 +1,4 @@
-const CommonPage = require('../commonPage');
+const CommonPage = require('../../commonPage');
 
 module.exports = class BOBasePage extends CommonPage {
   constructor() {
