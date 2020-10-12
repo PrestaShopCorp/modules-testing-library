@@ -85,7 +85,7 @@ you could definitely list it in your classMap. The example file shows this behav
 
 **`versionSelectResolver`**
 
-A class map designed to select which file to require for a specific version of PrestaShop. It could be extend with a 
+A class map designed to select which file to require for a specific version of PrestaShop. It could be extended with a 
 custom configClassMap (see above) to give him more filepaths and more classes.
 If it doesn't find the file you asked for in the configClassMap, it will search in the files bundled with this 
 library.
