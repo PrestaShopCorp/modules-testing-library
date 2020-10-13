@@ -96,6 +96,16 @@ class ModuleManager extends BOBasePage {
 
     return this.elementVisible(page, this.uploadModuleModalSuccess, 2000);
   }
+
+  /**
+   * Close upload module modal
+   * @param page
+   * @return {Promise<void>}
+   */
+  async closeUploadModuleModal(page) {
+    await page.click(this.uploadModuleModalCloseButton);
+    await page.waitForSelector(this.uploadModuleModalCloseButton, {state: 'hidden'});
+  }
 }
 
 module.exports = new ModuleManager();

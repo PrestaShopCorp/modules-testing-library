@@ -23,7 +23,13 @@ const moduleToInstall = {
   filePath: `${process.cwd()}/tests/ui/data/ps_advertising.zip`,
 };
 
-describe(`Check prestashop version ${global.PS_VERSION}`, async () => {
+/*
+Open Bo login page and check prestashop version
+Go to module manager page
+Upload zip module
+Check that module is installed
+ */
+describe(`Install module with zip in PrestaShop version ${global.PS_VERSION}`, async () => {
   // before and after functions
   before(async function () {
     browserContext = await helper.createBrowserContext(this.browser);
@@ -71,13 +77,10 @@ describe(`Check prestashop version ${global.PS_VERSION}`, async () => {
   });
 
   it('should check that the module was installed', async () => {
-    await page.click(moduleManagerPage.uploadModuleModalCloseButton);
-    await dashboardPage.goToSubMenu(
-      page,
-      dashboardPage.modulesParentLink,
-      dashboardPage.moduleManagerLink,
-    );
+    await moduleManagerPage.closeUploadModuleModal(page);
+    await moduleManagerPage.reloadPage(page);
     const isModuleVisible = await moduleManagerPage.searchModule(page, moduleToInstall.tag, moduleToInstall.name);
+
     await expect(isModuleVisible).to.be.true;
   });
 
