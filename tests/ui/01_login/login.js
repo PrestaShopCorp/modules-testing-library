@@ -11,25 +11,18 @@ const versionSelectResolver = new VersionSelectResolver(global.PS_VERSION);
 // Import pages
 const loginPage = versionSelectResolver.require('BO/login/index.js');
 const dashboardPage = versionSelectResolver.require('BO/dashboard/index.js');
-const moduleManagerPage = versionSelectResolver.require('BO/modules/moduleManager/index.js');
 
 // Browser vars
 let browserContext;
 let page;
 
-const moduleToInstall = {
-  name: 'Test Library Module',
-  tag: 'testlibmodule',
-  filePath: `${process.cwd()}/tests/ui/data/testlibmodule.zip`,
-};
-
 /*
-Open Bo login page and check prestashop version
-Go to module manager page
-Upload zip module
-Check that module is installed
+Go to login page
+check PS version
+Log in
+Log out
  */
-describe(`Install module with zip in PrestaShop version ${global.PS_VERSION}`, async () => {
+describe(`Check PS version ${global.PS_VERSION}, and login and log out from BO`, async () => {
   // before and after functions
   before(async function () {
     browserContext = await helper.createBrowserContext(this.browser);
@@ -60,37 +53,8 @@ describe(`Install module with zip in PrestaShop version ${global.PS_VERSION}`, a
     await expect(pageTitle).to.contains(dashboardPage.pageTitle);
   });
 
-  it('should go to modules manager page', async () => {
-    await dashboardPage.goToSubMenu(
-      page,
-      dashboardPage.modulesParentLink,
-      dashboardPage.moduleManagerLink,
-    );
-
-    const pageTitle = await moduleManagerPage.getPageTitle(page);
-    await expect(pageTitle).to.contains(moduleManagerPage.pageTitle);
-  });
-
-  it('should upload the module using the modal', async () => {
-    const result = await moduleManagerPage.uploadModule(page, moduleToInstall.filePath);
-    await expect(result).to.be.true;
-  });
-
-  it('should check that the module was installed', async () => {
-    await moduleManagerPage.closeUploadModuleModal(page);
-    await moduleManagerPage.reloadPage(page);
-    const isModuleVisible = await moduleManagerPage.searchModule(page, moduleToInstall.tag, moduleToInstall.name);
-
-    await expect(isModuleVisible).to.be.true;
-  });
-
-  it('should check that the module is enabled', async () => {
-    const isModuleEnabled = await moduleManagerPage.isModuleEnabled(page, moduleToInstall.name);
-    await expect(isModuleEnabled).to.be.true;
-  });
-
   it('should log out from BO', async () => {
-    await moduleManagerPage.logoutBO(page);
+    await dashboardPage.logoutBO(page);
 
     const pageTitle = await loginPage.getPageTitle(page);
     await expect(pageTitle).to.contains(loginPage.pageTitle);
