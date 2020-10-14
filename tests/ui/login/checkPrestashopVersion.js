@@ -18,9 +18,9 @@ let browserContext;
 let page;
 
 const moduleToInstall = {
-  name: 'Advertising block',
-  tag: 'ps_advertising',
-  filePath: `${process.cwd()}/tests/ui/data/ps_advertising.zip`,
+  name: 'Test Library Module',
+  tag: 'testlibmodule',
+  filePath: `${process.cwd()}/tests/ui/data/testlibmodule.zip`,
 };
 
 /*
