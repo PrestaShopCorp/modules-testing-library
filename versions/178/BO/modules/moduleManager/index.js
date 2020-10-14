@@ -10,21 +10,30 @@ class ModuleManager extends BOBasePage {
     this.searchModuleTagInput = '#search-input-group input.pstaggerAddTagInput';
     this.searchModuleButton = '#module-search-button';
     this.modulesListBlock = '.module-short-list:not([style=\'display: none;\'])';
-    this.modulesListBlockTitle = `${this.modulesListBlock} span.module-search-result-title`;
     this.allModulesBlock = `${this.modulesListBlock} .module-item-list`;
     this.moduleBlock = moduleName => `${this.allModulesBlock}[data-name='${moduleName}']`;
     this.disableModuleButton = moduleName => `${this.moduleBlock(moduleName)} button.module_action_menu_disable`;
     this.configureModuleButton = moduleName => `${this.moduleBlock(moduleName)}`
       + ' div.module-actions a[href*=\'/action/configure\']';
     this.actionsDropdownButton = moduleName => `${this.moduleBlock(moduleName)} button.dropdown-toggle`;
+
     // Status dropdown selectors
-    this.statusDropdownDiv = '#module-status-dropdown';
     this.statusDropdownMenu = 'div.ps-dropdown-menu[aria-labelledby=\'module-status-dropdown\']';
     this.statusDropdownItemLink = ref => `${this.statusDropdownMenu} ul li[data-status-ref='${ref}'] a`;
-    // Categories
+
+    // Categories selectors
     this.categoriesSelectDiv = '#categories';
     this.categoriesDropdownDiv = 'div.ps-dropdown-menu.dropdown-menu.module-category-selector';
     this.categoryDropdownItem = cat => `${this.categoriesDropdownDiv} li[data-category-display-name='${cat}']`;
+
+    // Upload selectors
+    this.uploadModuleButton = '#page-header-desc-configuration-add_module';
+    this.uploadModuleModal = '#module-modal-import';
+    this.uploadModuleModalCloseButton = '#module-modal-import-closing-cross';
+    this.importDropZone = '#importDropzone';
+    this.uploadModuleModalFileInput = `${this.importDropZone} input`;
+    this.uploadModuleModalProcessing = `${this.importDropZone} > div.module-import-processing`;
+    this.uploadModuleModalSuccess = `${this.importDropZone} > div.module-import-success`;
   }
 
   /*
@@ -68,6 +77,34 @@ class ModuleManager extends BOBasePage {
    */
   isModuleEnabled(page, moduleName) {
     return this.elementNotVisible(page, this.disableModuleButton(moduleName), 1000);
+  }
+
+  /**
+   * Upload a module and returns a success or failure
+   * @param page
+   * @param filePath
+   * @returns {Promise<boolean>}
+   */
+  async uploadModule(page, filePath) {
+    await page.click(this.uploadModuleButton);
+    await this.waitForVisibleSelector(page, this.uploadModuleModal);
+
+    const handle = await page.$(this.uploadModuleModalFileInput);
+    await handle.setInputFiles(filePath);
+
+    await page.waitForSelector(this.uploadModuleModalProcessing, {state: 'hidden'});
+
+    return this.elementVisible(page, this.uploadModuleModalSuccess, 2000);
+  }
+
+  /**
+   * Close upload module modal
+   * @param page
+   * @return {Promise<void>}
+   */
+  async closeUploadModuleModal(page) {
+    await page.click(this.uploadModuleModalCloseButton);
+    await page.waitForSelector(this.uploadModuleModalCloseButton, {state: 'hidden'});
   }
 }
 

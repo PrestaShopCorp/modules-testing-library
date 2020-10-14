@@ -7,17 +7,10 @@ const configClassMap = require('@unitTests/data/configClassMap');
 // These tests call directly `getFilePath` and pass it the getRequireClassExtends map file
 
 describe('Testing resolver getFilePath', () => {
-  it('should get the correct file with discover for 1.7.3', () => {
-    const versionSelectResolver = new VersionSelectResolver('1.7.3');
+  it('should get the correct file with discover for 1.7.7', () => {
+    const versionSelectResolver = new VersionSelectResolver('1.7.7');
     assert.strictEqual(versionSelectResolver.getFilePath('BO/login/index.js'),
-      '@versions/173/BO/login/index.js',
-    );
-  });
-
-  it('should get the correct file with configClassMap for 1.7.3', () => {
-    const versionSelectResolver = new VersionSelectResolver('1.7.3', configClassMap);
-    assert.strictEqual(versionSelectResolver.getFilePath('BO/products/index.js'),
-      '/versions/173/BO/products/index.js',
+      '@versions/177/BO/login/index.js',
     );
   });
 
