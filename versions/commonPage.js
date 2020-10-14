@@ -67,30 +67,6 @@ module.exports = class CommonPage {
   }
 
   /**
-   * Is checkBox have checked status
-   * @param page
-   * @param selector, checkbox to check
-   * @returns {Promise<boolean>}
-   */
-  async elementChecked(page, selector) {
-    return page.$eval(selector, el => el.checked);
-  }
-
-  /**
-   * Update checkbox value
-   * @param page
-   * @param selector
-   * @param expectedValue
-   * @return {Promise<void>}
-   */
-  async updateCheckboxValue(page, selector, expectedValue) {
-    const actualValue = await this.elementChecked(page, selector);
-    if (actualValue !== expectedValue) {
-      await page.click(selector);
-    }
-  }
-
-  /**
    * Is element visible
    * @param page
    * @param selector, element to check
@@ -142,18 +118,6 @@ module.exports = class CommonPage {
   }
 
   /**
-   * Wait for selector and click
-   * @param page
-   * @param selector, element to check
-   * @param timeout, wait timeout
-   * @return {Promise<void>}
-   */
-  async waitForSelectorAndClick(page, selector, timeout = 5000) {
-    await this.waitForVisibleSelector(page, selector, timeout);
-    await page.click(selector);
-  }
-
-  /**
    * Reload actual browser page
    * @param page
    * @return {Promise<void>}
@@ -170,8 +134,9 @@ module.exports = class CommonPage {
    * @return {Promise<void>}
    */
   async setValue(page, selector, value) {
-    await this.waitForSelectorAndClick(page, selector);
+    await page.click(selector);
     await page.click(selector, {clickCount: 3});
+
     // Delete text from input before typing
     await page.press(selector, 'Delete');
     await page.type(selector, value);
@@ -303,18 +268,6 @@ module.exports = class CommonPage {
     }
   }
 
-  /**
-   * Sort array of strings or numbers
-   * @param arrayToSort
-   * @param isFloat
-   * @return {Promise<*>}
-   */
-  async sortArray(arrayToSort, isFloat = false) {
-    if (isFloat) {
-      return arrayToSort.sort((a, b) => a - b);
-    }
-    return arrayToSort.sort((a, b) => a.localeCompare(b));
-  }
 
   /**
    * Drag and drop element
@@ -328,14 +281,5 @@ module.exports = class CommonPage {
     await page.mouse.down();
     await page.hover(selectorWhereToDrop);
     await page.mouse.up();
-  }
-
-  /**
-   * Uppercase the first character of the word
-   * @param word
-   * @returns {string}
-   */
-  uppercaseFirstCharacter(word) {
-    return `${word[0].toUpperCase()}${word.slice(1)}`;
   }
 };
