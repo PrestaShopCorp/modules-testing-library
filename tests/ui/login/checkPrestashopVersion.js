@@ -88,4 +88,11 @@ describe(`Install module with zip in PrestaShop version ${global.PS_VERSION}`, a
     const isModuleEnabled = await moduleManagerPage.isModuleEnabled(page, moduleToInstall.name);
     await expect(isModuleEnabled).to.be.true;
   });
+
+  it('should log out from BO', async () => {
+    await moduleManagerPage.logoutBO(page);
+
+    const pageTitle = await loginPage.getPageTitle(page);
+    await expect(pageTitle).to.contains(loginPage.pageTitle);
+  });
 });
