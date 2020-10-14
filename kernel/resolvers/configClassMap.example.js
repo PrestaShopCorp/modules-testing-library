@@ -11,10 +11,4 @@ module.exports = [
       '1.7.4': '/versions/174/BO/dashboard/index_overriden.js',
     },
   },
-  {
-    file: 'BO/products/index.js',
-    versions: {
-      '1.7.3': '/versions/173/BO/products/index.js',
-    },
-  },
 ];

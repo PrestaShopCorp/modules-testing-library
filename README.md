@@ -36,7 +36,7 @@
 
 The PrestaShop test library is a very lightweight solution for testing modules. It uses the same stack than the one 
 used for [UI tests](https://github.com/PrestaShop/PrestaShop/tree/develop/tests/UI) in the core project. It also 
-provides basic pages for the back office in all 1.7 versions (support last patch version for all minor ones), 
+provides basic pages for the back office on PrestaShop versions 1.7.4, 1.7.5, 1.7.6, 1.7.7, 1.7.8 (support last patch version for all minor ones), 
 including `develop`. 
 
 ## Usage
