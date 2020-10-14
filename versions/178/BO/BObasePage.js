@@ -11,7 +11,7 @@ module.exports = class BOBasePage extends CommonPage {
     this.successfulMultiDeleteMessage = 'The selection has been successfully deleted.';
 
     // top navbar
-    this.userProfileIconNonMigratedPages = '#employee_infos';
+    this.userProfileIconNonMigratedPages = '#employee_infos a';
     this.userProfileIcon = '#header_infos #header-employee-container';
     this.userProfileLogoutLink = 'a#header_logout';
     this.shopVersionBloc = '#shop_version';
