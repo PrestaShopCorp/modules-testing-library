@@ -32,6 +32,8 @@ module.exports = class BOBasePage extends CommonPage {
     this.creditSlipsLink = '#subtab-AdminSlip';
     // Delivery slips
     this.deliverySlipslink = '#subtab-AdminDeliverySlip';
+    // Shopping carts
+    this.shoppingCartsLink = '#subtab-AdminCarts';
 
     // Catalog
     this.catalogParentLink = 'li#subtab-AdminCatalog';
@@ -57,8 +59,11 @@ module.exports = class BOBasePage extends CommonPage {
 
     // Customer Service
     this.customerServiceParentLink = '#subtab-AdminParentCustomerThreads';
+    this.customerServiceLink = '#subtab-AdminCustomerThreads';
     // Order Messages
     this.orderMessagesLink = '#subtab-AdminOrderMessage';
+    // Merchandise returns
+    this.merchandiseReturnsLink = '#subtab-AdminReturn';
 
     // Improve
     // Modules
@@ -68,8 +73,10 @@ module.exports = class BOBasePage extends CommonPage {
 
     // Design
     this.designParentLink = '#subtab-AdminParentThemes';
-    // Email theme
-    this.emailThemeLink = '#subtab-AdminParentMailTheme';
+    // Theme & logo
+    this.themeAndLogoLink = '#subtab-AdminThemesParent';
+    // Theme Catalog
+    this.themeCatalog = '#subtab-AdminThemesCatalog , #subtab-AdminPsMboTheme';
     // Pages
     this.pagesLink = '#subtab-AdminCmsContent';
     // Positions
@@ -79,17 +86,28 @@ module.exports = class BOBasePage extends CommonPage {
     // Link widget
     this.linkWidgetLink = '#subtab-AdminLinkWidget';
 
+    // Shipping
+    this.shippingParentLink = '#subtab-AdminParentShipping';
+    // Carriers
+    this.carriersLink = '#subtab-AdminCarriers';
+    // Preferences
+    this.shippingPreferencesLink = '#subtab-AdminShipping';
+
     // Payment
     this.paymentParentLink = '#subtab-AdminParentPayment';
+    // Payment methods
+    this.paymentMethodsLink = '#subtab-AdminPayment';
     // Preferences
-    this.preferencesLink = '#subtab-AdminPaymentPreferences';
+    this.paymentPreferencesLink = '#subtab-AdminPaymentPreferences';
 
     // International
     this.internationalParentLink = '#subtab-AdminInternational';
-    // Taxes
-    this.taxesLink = '#subtab-AdminParentTaxes';
     // Localization
     this.localizationLink = '#subtab-AdminParentLocalization';
+    // Locations
+    this.locationLink = '#subtab-AdminParentCountries';
+    // Taxes
+    this.taxesLink = '#subtab-AdminParentTaxes';
     // Translations
     this.translationsLink = '#subtab-AdminTranslations';
 
@@ -107,9 +125,17 @@ module.exports = class BOBasePage extends CommonPage {
     this.contactLink = '#subtab-AdminParentStores';
     // traffic and SEO
     this.trafficAndSeoLink = '#subtab-AdminParentMeta';
+    // Search
+    this.searchLink = '#subtab-AdminParentSearchConf';
 
     // Advanced Parameters
     this.advancedParametersLink = '#subtab-AdminAdvancedParameters';
+    // Information
+    this.informationLink = '#subtab-AdminInformation';
+    // Performance
+    this.performanceLink = '#subtab-AdminPerformance';
+    // Administration
+    this.administrationLink = '#subtab-AdminAdminPreferences';
     // E-mail
     this.emailLink = '#subtab-AdminEmails';
     // Import
@@ -118,6 +144,8 @@ module.exports = class BOBasePage extends CommonPage {
     this.teamLink = '#subtab-AdminParentEmployees';
     // Database
     this.databaseLink = '#subtab-AdminParentRequestSql';
+    // logs
+    this.logsLink = '#subtab-AdminLogs';
     // Webservice
     this.webserviceLink = '#subtab-AdminWebservice';
     // Multistore
