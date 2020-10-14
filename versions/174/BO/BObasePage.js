@@ -253,35 +253,6 @@ module.exports = class BOBasePage extends CommonPage {
   }
 
   /**
-   * Open help side bar
-   * @param page
-   * @returns {Promise<boolean>}
-   */
-  async openHelpSideBar(page) {
-    await this.waitForSelectorAndClick(page, this.helpButton);
-    return this.elementVisible(page, `${this.rightSidebar}.sidebar-open`, 2000);
-  }
-
-  /**
-   * Close help side bar
-   * @param page
-   * @returns {Promise<boolean>}
-   */
-  async closeHelpSideBar(page) {
-    await this.waitForSelectorAndClick(page, this.helpButton);
-    return this.elementVisible(page, `${this.rightSidebar}:not(.sidebar-open)`, 2000);
-  }
-
-  /**
-   * Get help document URL
-   * @param page
-   * @returns {Promise<string>}
-   */
-  async getHelpDocumentURL(page) {
-    return this.getAttributeContent(page, this.helpDocumentURL, 'data');
-  }
-
-  /**
    * Check if Submenu is visible
    * @param page
    * @param parentSelector
