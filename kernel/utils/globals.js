@@ -2,7 +2,7 @@ global.FO = {
   URL: process.env.URL_FO || 'http://localhost/',
 };
 
-global.PS_VERSION = process.env.PS_VERSION || 'develop';
+global.PS_VERSION = process.env.PS_VERSION || '1.7.7';
 
 global.BO = {
   URL: process.env.URL_BO || `${global.FO.URL}admin-dev/`,
