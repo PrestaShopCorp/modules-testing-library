@@ -45,8 +45,8 @@ describe(`Check PS version ${global.PS_VERSION}, and login and log out from BO`,
     await expect(psVersion).to.contains(global.PS_VERSION);
   });
 
-  it('should login into BO', async () => {
-    await loginPage.login(page);
+  it('should login into BO with default user', async () => {
+    await loginPage.login(page, global.BO.EMAIL, global.BO.PASSWD);
     await dashboardPage.closeOnboardingModal(page);
 
     const pageTitle = await dashboardPage.getPageTitle(page);
@@ -58,5 +58,13 @@ describe(`Check PS version ${global.PS_VERSION}, and login and log out from BO`,
 
     const pageTitle = await loginPage.getPageTitle(page);
     await expect(pageTitle).to.contains(loginPage.pageTitle);
+  });
+
+  it('should try to login with wrong email and password', async () => {
+    await loginPage.login(page, 'wrongEmail@prestashop.com', 'wrongPass', false);
+
+    // Get error displayed
+    const errorMessage = await loginPage.getLoginError(page);
+    await expect(errorMessage).to.contain(loginPage.loginErrorText);
   });
 });
