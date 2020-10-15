@@ -12,8 +12,7 @@ class ModuleManager extends BOBasePage {
     this.allModulesBlock = '.module-item-list';
     this.moduleBlock = moduleName => `${this.allModulesBlock}[data-name='${moduleName}']`;
     this.disableModuleButton = moduleName => `${this.moduleBlock(moduleName)} button.module_action_menu_disable`;
-    this.configureModuleButton = moduleName => `${this.moduleBlock(moduleName)}`
-      + ' div.module-actions a[href*=\'/action/configure\']';
+    this.configureModuleButton = moduleName => `${this.moduleBlock(moduleName)} button.module_action_menu_configure`;
     this.actionsDropdownButton = moduleName => `${this.moduleBlock(moduleName)} button.dropdown-toggle`;
 
     // Status dropdown selectors
@@ -67,7 +66,7 @@ class ModuleManager extends BOBasePage {
       ]);
     }
 
-    await page.click(this.configureModuleButton(moduleName));
+    await this.clickAndWaitForNavigation(page, this.configureModuleButton(moduleName));
   }
 
   /**

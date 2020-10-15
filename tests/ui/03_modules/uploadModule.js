@@ -12,6 +12,7 @@ const versionSelectResolver = new VersionSelectResolver(global.PS_VERSION);
 const loginPage = versionSelectResolver.require('BO/login/index.js');
 const dashboardPage = versionSelectResolver.require('BO/dashboard/index.js');
 const moduleManagerPage = versionSelectResolver.require('BO/modules/moduleManager/index.js');
+const moduleConfigurationPage = versionSelectResolver.require('BO/modules/moduleConfiguration/index.js');
 
 // Browser vars
 let browserContext;
@@ -41,18 +42,16 @@ describe(`Install module with zip in PrestaShop version ${global.PS_VERSION}`, a
     await helper.closeBrowserContext(browserContext);
   });
 
-  it('should go to login page', async () => {
-    await loginPage.goTo(page, global.BO.URL);
-    const pageTitle = await loginPage.getPageTitle(page);
-    await expect(pageTitle).to.contains(loginPage.pageTitle);
-  });
-
   it('should login into BO', async () => {
+    await loginPage.goTo(page, global.BO.URL);
+    const loginPageTitle = await loginPage.getPageTitle(page);
+    await expect(loginPageTitle).to.contains(loginPage.pageTitle);
+
     await loginPage.login(page);
     await dashboardPage.closeOnboardingModal(page);
 
-    const pageTitle = await dashboardPage.getPageTitle(page);
-    await expect(pageTitle).to.contains(dashboardPage.pageTitle);
+    const dashboardPageTitle = await dashboardPage.getPageTitle(page);
+    await expect(dashboardPageTitle).to.contains(dashboardPage.pageTitle);
   });
 
   it('should go to modules manager page', async () => {
@@ -82,5 +81,17 @@ describe(`Install module with zip in PrestaShop version ${global.PS_VERSION}`, a
   it('should check that the module is enabled', async () => {
     const isModuleEnabled = await moduleManagerPage.isModuleEnabled(page, moduleToInstall.name);
     await expect(isModuleEnabled).to.be.true;
+  });
+
+  it('should go to configuration page', async () => {
+    await moduleManagerPage.goToConfigurationPage(page, moduleToInstall.name);
+
+    // Check configuration page
+    const pageTitle = await moduleConfigurationPage.getPageTitle(page);
+    await expect(pageTitle).to.contain(moduleConfigurationPage.pageTitle);
+
+    // Check module name
+    const pageSubtitle = await moduleConfigurationPage.getPageSubtitle(page);
+    await expect(pageSubtitle).to.contain(moduleToInstall.name);
   });
 });

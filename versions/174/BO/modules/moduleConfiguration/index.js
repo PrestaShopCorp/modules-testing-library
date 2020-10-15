@@ -7,11 +7,12 @@ class ModuleConfiguration extends BOBasePage {
     this.pageTitle = 'Configure';
 
     // Selectors
-    this.titleBlock = '.page-title';
+    this.titleBlock = 'h2.page-title';
     this.subtitleBlock = '.page-subtitle';
   }
 
   /**
+   * @override
    * Get page title
    * @param page
    * @return {Promise<string>}

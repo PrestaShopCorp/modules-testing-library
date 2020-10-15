@@ -66,7 +66,7 @@ class ModuleManager extends BOBasePage {
         this.waitForVisibleSelector(page, `${this.actionsDropdownButton(moduleName)}[aria-expanded='true']`),
       ]);
     }
-    await page.click(this.configureModuleButton(moduleName));
+    await this.clickAndWaitForNavigation(page, this.configureModuleButton(moduleName));
   }
 
   /**
