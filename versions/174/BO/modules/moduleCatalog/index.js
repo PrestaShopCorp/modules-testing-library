@@ -4,7 +4,7 @@ class ModuleCatalog extends BOBasePage {
   constructor() {
     super();
 
-    this.pageTitle = 'Module Catalog •';
+    this.pageTitle = 'Module selection •';
     this.installMessageSuccessful = moduleTag => `Install action on module ${moduleTag} succeeded.`;
 
     // Selectors
@@ -23,12 +23,13 @@ class ModuleCatalog extends BOBasePage {
    * @param page
    * @param moduleTag, Tag of Module
    * @param moduleName, Name of module
-   * @return {Promise<void>}
+   * @return {Promise<boolean>}
    */
   async searchModule(page, moduleTag, moduleName) {
     await page.type(this.searchModuleTagInput, moduleTag);
     await page.click(this.searchModuleButton);
-    await this.waitForVisibleSelector(page, this.moduleBloc(moduleName));
+
+    return this.elementVisible(page, this.moduleBloc(moduleName), 2000);
   }
 
   /**
@@ -38,6 +39,12 @@ class ModuleCatalog extends BOBasePage {
    * @returns {Promise<string>}
    */
   async installModule(page, moduleName) {
+    if (await this.elementNotVisible(page, this.moduleBloc(moduleName), 2000)) {
+      throw new Error('Can\'t found the module');
+    } else if (await this.elementNotVisible(page, this.installModuleButton(moduleName), 2000)) {
+      throw new Error('Module already installed');
+    }
+
     await page.click(this.installModuleButton(moduleName));
     return this.getTextContent(page, this.growlMessageBlock);
   }

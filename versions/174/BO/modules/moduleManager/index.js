@@ -6,6 +6,9 @@ class ModuleManager extends BOBasePage {
 
     this.pageTitle = 'Manage installed modules •';
 
+    // Header selectors
+    this.selectionSubTab = '#subtab-AdminModulesCatalog';
+
     // Selectors
     this.searchModuleTagInput = '#search-input-group input.pstaggerAddTagInput';
     this.searchModuleButton = '#module-search-button';
@@ -37,6 +40,15 @@ class ModuleManager extends BOBasePage {
   /*
   Methods
    */
+
+  /**
+   * Go to selection subTab
+   * @param page
+   * @return {Promise<void>}
+   */
+  async goToSelectionPage(page) {
+    await this.clickAndWaitForNavigation(page, this.selectionSubTab);
+  }
 
   /**
    * Search Module in Page module Catalog
