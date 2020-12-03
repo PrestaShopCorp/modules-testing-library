@@ -10,7 +10,7 @@ describe('Testing resolver getFilePath', () => {
   it('should get the correct file with discover for 1.7.7', () => {
     const versionSelectResolver = new VersionSelectResolver('1.7.7');
     assert.strictEqual(versionSelectResolver.getFilePath('BO/login/index.js'),
-      '@versions/177/BO/login/index.js',
+      `${process.cwd()}/versions/177/BO/login/index.js`,
     );
   });
 

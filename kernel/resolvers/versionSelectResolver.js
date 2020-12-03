@@ -1,5 +1,6 @@
 const fs = require('fs');
 require('module-alias/register');
+const path = require('path');
 
 /*
 Supported patch versions:
@@ -38,17 +39,17 @@ module.exports = class VersionSelectResolver {
 
     // either we don't have the file in configClassMap or we don't have a target for this version
     const versionForFilepath = this.version.replace(/\./g, '');
-    const basepath = process.cwd();
+    const basePath = path.resolve(__dirname, '../..');
 
-    if (!fs.existsSync(`${basepath}/versions/${versionForFilepath}`)) {
+    if (!fs.existsSync(`${basePath}/versions/${versionForFilepath}`)) {
       throw new Error(`Couldn't find the folder for version '${this.version}'`);
     }
 
-    if (!fs.existsSync(`${basepath}/versions/${versionForFilepath}/${file}`)) {
+    if (!fs.existsSync(`${basePath}/versions/${versionForFilepath}/${file}`)) {
       throw new Error(`Couldn't find the file '${file}' in version folder '${this.version}'`);
     }
 
-    return `@versions/${versionForFilepath}/${file}`;
+    return `${basePath}/versions/${versionForFilepath}/${file}`;
   }
 
   /**
