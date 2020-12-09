@@ -12,16 +12,14 @@ const versionSelectResolver = new VersionSelectResolver(global.PS_VERSION);
 const loginPage = versionSelectResolver.require('BO/login/index.js');
 const dashboardPage = versionSelectResolver.require('BO/dashboard/index.js');
 const moduleManagerPage = versionSelectResolver.require('BO/modules/moduleManager/index.js');
-const moduleConfigurationPage = versionSelectResolver.require('BO/modules/moduleConfiguration/index.js');
 
 // Browser vars
 let browserContext;
 let page;
 
-const moduleToInstall = {
+const moduleData = {
   name: 'Test Library Module',
   tag: 'testlibmodule',
-  filePath: `${process.cwd()}/tests/ui/data/testlibmodule.zip`,
 };
 
 /*
@@ -30,7 +28,7 @@ Go to module manager page
 Upload zip module
 Check that module is installed
  */
-describe(`Install module with zip in PrestaShop version ${global.PS_VERSION}`, async () => {
+describe('Disable and enable module', async () => {
   // before and after functions
   before(async function () {
     browserContext = await helper.createBrowserContext(this.browser);
@@ -65,33 +63,21 @@ describe(`Install module with zip in PrestaShop version ${global.PS_VERSION}`, a
     await expect(pageTitle).to.contains(moduleManagerPage.pageTitle);
   });
 
-  it('should upload the module using the modal', async () => {
-    const result = await moduleManagerPage.uploadModule(page, moduleToInstall.filePath);
-    await expect(result).to.be.true;
-  });
-
   it('should check that the module was installed', async () => {
-    await moduleManagerPage.closeUploadModuleModal(page);
-    await moduleManagerPage.reloadPage(page);
-    const isModuleVisible = await moduleManagerPage.searchModule(page, moduleToInstall.tag, moduleToInstall.name);
+    const isModuleVisible = await moduleManagerPage.searchModule(page, moduleData.tag, moduleData.name);
 
     await expect(isModuleVisible).to.be.true;
   });
 
-  it('should check that the module is enabled', async () => {
-    const isModuleEnabled = await moduleManagerPage.isModuleEnabled(page, moduleToInstall.name);
-    await expect(isModuleEnabled).to.be.true;
+  it('should disable module', async () => {
+    const textResult = await moduleManagerPage.disableModule(page, moduleData.tag, moduleData.name);
+
+    await expect(textResult).to.contain(moduleManagerPage.successfulDisableMessage(moduleData.tag));
   });
 
-  it('should go to configuration page', async () => {
-    await moduleManagerPage.goToConfigurationPage(page, moduleToInstall.name);
+  it('should enable module', async () => {
+    const textResult = await moduleManagerPage.enableModule(page, moduleData.name);
 
-    // Check configuration page
-    const pageTitle = await moduleConfigurationPage.getPageTitle(page);
-    await expect(pageTitle).to.contain(moduleConfigurationPage.pageTitle);
-
-    // Check module name
-    const pageSubtitle = await moduleConfigurationPage.getPageSubtitle(page);
-    await expect(pageSubtitle).to.contain(moduleToInstall.name);
+    await expect(textResult).to.contain(moduleManagerPage.successfulEnableMessage(moduleData.tag));
   });
 });

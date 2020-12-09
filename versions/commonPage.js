@@ -43,11 +43,12 @@ module.exports = class CommonPage {
    * @param page
    * @param selector, from where to get text
    * @param waitForSelector
+   * @param timeout
    * @return {Promise<string>}
    */
-  async getTextContent(page, selector, waitForSelector = true) {
+  async getTextContent(page, selector, waitForSelector = true, timeout = 10000) {
     if (waitForSelector) {
-      await this.waitForVisibleSelector(page, selector);
+      await this.waitForVisibleSelector(page, selector, timeout);
     }
     const textContent = await page.$eval(selector, el => el.textContent);
     return textContent.replace(/\s+/g, ' ').trim();

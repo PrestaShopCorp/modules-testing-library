@@ -19,8 +19,8 @@ let browserContext;
 let page;
 
 const moduleToInstall = {
-  name: 'Google Ads',
-  tag: 'gadwords',
+  name: 'Advertising block',
+  tag: 'ps_advertising',
 };
 
 /*

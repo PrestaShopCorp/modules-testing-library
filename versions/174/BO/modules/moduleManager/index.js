@@ -5,6 +5,8 @@ class ModuleManager extends BOBasePage {
     super();
 
     this.pageTitle = 'Manage installed modules •';
+    this.successfulEnableMessage = moduleTag => `Enable action on module ${moduleTag} succeeded.`;
+    this.successfulDisableMessage = moduleTag => `Disable action on module ${moduleTag} succeeded.`;
 
     // Header selectors
     this.selectionSubTab = '#subtab-AdminModulesCatalog';
@@ -14,7 +16,7 @@ class ModuleManager extends BOBasePage {
     this.searchModuleButton = '#module-search-button';
     this.allModulesBlock = '.module-item-list';
     this.moduleBlock = moduleName => `${this.allModulesBlock}[data-name='${moduleName}']`;
-    this.disableModuleButton = moduleName => `${this.moduleBlock(moduleName)} button.module_action_menu_disable`;
+    this.enableModuleButton = moduleName => `${this.moduleBlock(moduleName)} button.module_action_menu_enable`;
     this.configureModuleButton = moduleName => `${this.moduleBlock(moduleName)} button.module_action_menu_configure`;
     this.actionsDropdownButton = moduleName => `${this.moduleBlock(moduleName)} button.dropdown-toggle`;
 
@@ -35,6 +37,11 @@ class ModuleManager extends BOBasePage {
     this.uploadModuleModalFileInput = `${this.importDropZone} input`;
     this.uploadModuleModalProcessing = `${this.importDropZone} > div.module-import-processing`;
     this.uploadModuleModalSuccess = `${this.importDropZone} > div.module-import-success`;
+
+    // Disable selectors
+    this.disableModuleButton = moduleName => `${this.moduleBlock(moduleName)} button.module_action_menu_disable`;
+    this.disableModal = moduleTag => `#module-modal-confirm-${moduleTag}-disable`;
+    this.confirmDisableModalLink = moduleTag => `${this.disableModal(moduleTag)} a.module_action_modal_disable`;
   }
 
   /*
@@ -117,6 +124,53 @@ class ModuleManager extends BOBasePage {
   async closeUploadModuleModal(page) {
     await page.click(this.uploadModuleModalCloseButton);
     await page.waitForSelector(this.uploadModuleModalCloseButton, {state: 'hidden'});
+  }
+
+  /**
+   * Disable module
+   * @param page
+   * @param moduleTag
+   * @param moduleName
+   * @return {Promise<string>}
+   */
+  async disableModule(page, moduleTag, moduleName) {
+    // Open dropdown of disable button is not displayed as first button
+    if (await this.elementNotVisible(page, this.disableModuleButton(moduleName), 1000)) {
+      await page.click(this.actionsDropdownButton(moduleName));
+    }
+
+    // Click on disable module and wait for modal to be displayed
+    await Promise.all([
+      page.click(this.disableModuleButton(moduleName)),
+      this.waitForVisibleSelector(page, this.disableModal(moduleTag)),
+    ]);
+
+    // Confirm delete in modal and get successful message
+    const [textResult] = await Promise.all([
+      this.getGrowlMessageContent(page),
+      page.click(this.confirmDisableModalLink(moduleTag)),
+    ]);
+
+    await this.closeGrowlMessage(page);
+
+    return textResult;
+  }
+
+  /**
+   * Enable module
+   * @param page
+   * @param moduleName
+   * @return {Promise<string>}
+   */
+  async enableModule(page, moduleName) {
+    const [textResult] = await Promise.all([
+      this.getGrowlMessageContent(page),
+      page.click(this.enableModuleButton(moduleName)),
+    ]);
+
+    await this.closeGrowlMessage(page);
+
+    return textResult;
   }
 }
 
