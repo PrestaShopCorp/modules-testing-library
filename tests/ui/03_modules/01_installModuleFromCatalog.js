@@ -13,6 +13,7 @@ const loginPage = versionSelectResolver.require('BO/login/index.js');
 const dashboardPage = versionSelectResolver.require('BO/dashboard/index.js');
 const moduleManagerPage = versionSelectResolver.require('BO/modules/moduleManager/index.js');
 const moduleCatalogPage = versionSelectResolver.require('BO/modules/moduleCatalog/index.js');
+const moduleConfigurationPage = versionSelectResolver.require('BO/modules/moduleConfiguration/index.js');
 
 // Browser vars
 let browserContext;
@@ -84,5 +85,13 @@ describe('Install a module from modules catalog', async () => {
     const textResult = await moduleCatalogPage.installModule(page, moduleToInstall.name);
 
     await expect(textResult).to.contain(moduleCatalogPage.installMessageSuccessful(moduleToInstall.tag));
+  });
+
+  it('should go to configuration page', async () => {
+    await moduleCatalogPage.goToConfigurationPage(page, moduleToInstall.name);
+
+    // Check module name
+    const pageSubtitle = await moduleConfigurationPage.getPageSubtitle(page);
+    await expect(pageSubtitle).to.contain(moduleToInstall.name);
   });
 });

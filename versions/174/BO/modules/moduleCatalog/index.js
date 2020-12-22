@@ -12,6 +12,7 @@ class ModuleCatalog extends BOBasePage {
     this.searchModuleButton = '#module-search-button';
     this.moduleBloc = moduleName => `#modules-list-container-all div[data-name='${moduleName}']:not([style])`;
     this.installModuleButton = moduleName => `${this.moduleBloc(moduleName)} form>button.module_action_menu_install`;
+    this.configureModuleButton = moduleName => `${this.moduleBloc(moduleName)} div.module-actions a[href*='configure']`;
   }
 
   /*
@@ -47,6 +48,16 @@ class ModuleCatalog extends BOBasePage {
 
     await page.click(this.installModuleButton(moduleName));
     return this.getTextContent(page, this.growlMessageBlock);
+  }
+
+  /**
+   * Go to module configuration page
+   * @param page
+   * @param moduleName
+   * @returns {Promise<void>}
+   */
+  async goToConfigurationPage(page, moduleName) {
+    await this.clickAndWaitForNavigation(page, this.configureModuleButton(moduleName));
   }
 }
 
