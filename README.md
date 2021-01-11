@@ -160,8 +160,12 @@ If it doesn't find your class, it will throw an error.
 
 #### Example
 
-You can found an example of the implementation of this library on [this module](https://github.com/PrestaShopCorp/prestashop_test_example).
+You can find an example of the implementation of this library on [this module](https://github.com/PrestaShopCorp/prestashop_test_example).
+
+
+## JS docs
+You can find the functions to use and their its description On this [directory](./docs).
 
 ## Contribution
 
-You can Contribute to this library by adding new pages, providing new units and UI tests, by submitting a PR.
+You can contribute to this library by adding new pages, providing new units and UI tests, by submitting a PR.
