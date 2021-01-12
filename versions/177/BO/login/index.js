@@ -1,6 +1,15 @@
 const BOBasePage = require('../BObasePage.js');
 
+/**
+ * BO dashboard page
+ * @class
+ * @extends BOBasePage
+ */
 class Login extends BOBasePage {
+  /**
+   * @constructs
+   * Creating login page (selectors and static messages)
+   */
   constructor() {
     super();
 
@@ -25,10 +34,10 @@ class Login extends BOBasePage {
 
   /**
    * Enter credentials and submit login form
-   * @param page
-   * @param email
-   * @param password
-   * @param waitForNavigation, false if login should fail
+   * @param page {Page} Browser tab
+   * @param email {string} Email to set for login
+   * @param password {string} Password to set for login
+   * @param waitForNavigation {boolean} False if login should fail (No navigation needed)
    * @returns {Promise<void>}
    */
   async login(page, email = global.BO.EMAIL, password = global.BO.PASSWD, waitForNavigation = true) {
@@ -45,7 +54,7 @@ class Login extends BOBasePage {
 
   /**
    * Get login error
-   * @param page
+   * @param page {Page} Browser tab
    * @return {Promise<string>}
    */
   async getLoginError(page) {
@@ -54,7 +63,7 @@ class Login extends BOBasePage {
 
   /**
    * Get prestashop version from login page
-   * @param page
+   * @param page {Page} Browser tab
    * @return {Promise<string>}
    */
   getPrestashopVersion(page) {

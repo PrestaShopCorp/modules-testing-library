@@ -11,7 +11,18 @@ Supported patch versions:
 - 1.7.8.0
  */
 
-module.exports = class VersionSelectResolver {
+/**
+ * Class to get import needed files for the given version
+ * @class
+ */
+class VersionSelectResolver {
+  /**
+   * @constructs
+   * Creating a resolver
+   *
+   * @param {string} version PrestaShop version
+   * @param {json} ConfigClassMap Optional parameter for added or override classes
+   */
   constructor(version, ConfigClassMap) {
     this.version = version;
     this.configClassMap = ConfigClassMap;
@@ -19,13 +30,14 @@ module.exports = class VersionSelectResolver {
 
   /**
    * Get file path to require
-   * @param file
-   * @return {string}
+   *
+   * @param {string} selector Base path of the file to import
+   * @return {string} Final path of the file to import
    */
-  getFilePath(file) {
+  getFilePath(selector) {
     if (this.configClassMap) {
-      // do we have a reference for this file in the configClassMap ?
-      const referenceExists = this.configClassMap.find(el => el.file === file);
+      // Search a reference for this file in the configClassMap
+      const referenceExists = this.configClassMap.find(el => el.file === selector);
 
       if (referenceExists) {
         // we have this file in the configClassMap
@@ -45,17 +57,18 @@ module.exports = class VersionSelectResolver {
       throw new Error(`Couldn't find the folder for version '${this.version}'`);
     }
 
-    if (!fs.existsSync(`${basePath}/versions/${versionForFilepath}/${file}`)) {
-      throw new Error(`Couldn't find the file '${file}' in version folder '${this.version}'`);
+    if (!fs.existsSync(`${basePath}/versions/${versionForFilepath}/${selector}`)) {
+      throw new Error(`Couldn't find the file '${selector}' in version folder '${this.version}'`);
     }
 
-    return `${basePath}/versions/${versionForFilepath}/${file}`;
+    return `${basePath}/versions/${versionForFilepath}/${selector}`;
   }
 
   /**
    * Get file path and require it
-   * @param selector
-   * @return {any}
+   *
+   * @param {string} selector Base path of the file to import
+   * @return {Module} Object of the path given
    */
   require(selector) {
     // eslint-disable-next-line global-require,import/no-dynamic-require
@@ -63,4 +76,6 @@ module.exports = class VersionSelectResolver {
       this.getFilePath(selector),
     );
   }
-};
+}
+
+module.exports = VersionSelectResolver;

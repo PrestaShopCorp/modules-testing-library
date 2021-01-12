@@ -1,6 +1,15 @@
 const BOBasePage = require('../../BObasePage.js');
 
+/**
+ * BO module catalog page
+ * @class
+ * @extends BOBasePage
+ */
 class ModuleCatalog extends BOBasePage {
+  /**
+   * @constructs
+   * Creating module catalog page (selectors and static messages)
+   */
   constructor() {
     super();
 
@@ -21,9 +30,9 @@ class ModuleCatalog extends BOBasePage {
 
   /**
    * Search Module in Page module Catalog
-   * @param page
-   * @param moduleTag, Tag of Module
-   * @param moduleName, Name of module
+   * @param page {Page} Browser tab
+   * @param moduleTag {string} Tag of the module
+   * @param moduleName {string} Name of the module
    * @return {Promise<boolean>}
    */
   async searchModule(page, moduleTag, moduleName) {
@@ -34,9 +43,9 @@ class ModuleCatalog extends BOBasePage {
   }
 
   /**
-   * Install Module and waiting for Successful massage
-   * @param page
-   * @param moduleName, Name of module
+   * Install Module and waiting for successful massage
+   * @param page {Page} Browser tab
+   * @param moduleName {string} Name of the module
    * @returns {Promise<string>}
    */
   async installModule(page, moduleName) {
@@ -52,8 +61,8 @@ class ModuleCatalog extends BOBasePage {
 
   /**
    * Go to module configuration page
-   * @param page
-   * @param moduleName
+   * @param page {Page} Browser tab
+   * @param moduleName {string} Name of the module
    * @returns {Promise<void>}
    */
   async goToConfigurationPage(page, moduleName) {

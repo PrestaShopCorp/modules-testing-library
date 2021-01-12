@@ -1,7 +1,11 @@
-module.exports = class CommonPage {
+/**
+ * Parent page, contains functions that can be used in every page (BO, FO ...)
+ * @class
+ */
+class CommonPage {
   /**
    * Get page title
-   * @param page
+   * @param page {Page} Browser tab
    * @returns {Promise<string>}
    */
   async getPageTitle(page) {
@@ -10,8 +14,8 @@ module.exports = class CommonPage {
 
   /**
    * Go to URL
-   * @param page
-   * @param url
+   * @param page {Page} Browser tab
+   * @param url {string} URL to navigate to
    * @returns {Promise<void>}
    */
   async goTo(page, url) {
@@ -20,7 +24,7 @@ module.exports = class CommonPage {
 
   /**
    * Get current url
-   * @param page
+   * @param page {Page} Browser tab
    * @returns {Promise<string>}
    */
   async getCurrentURL(page) {
@@ -29,9 +33,9 @@ module.exports = class CommonPage {
 
   /**
    * Wait for selector to be visible
-   * @param page
-   * @param selector
-   * @param timeout
+   * @param page {Page} Browser tab
+   * @param selector {string} selector to wait
+   * @param timeout {number} Time to wait in milliseconds
    * @return {Promise<void>}
    */
   async waitForVisibleSelector(page, selector, timeout = 10000) {
@@ -40,10 +44,10 @@ module.exports = class CommonPage {
 
   /**
    * Get Text from element
-   * @param page
-   * @param selector, from where to get text
-   * @param waitForSelector
-   * @param timeout
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param waitForSelector {boolean} True to wait for selector before
+   * @param timeout {number} Time to wait in milliseconds
    * @return {Promise<string>}
    */
   async getTextContent(page, selector, waitForSelector = true, timeout = 10000) {
@@ -55,10 +59,10 @@ module.exports = class CommonPage {
   }
 
   /**
-   * Get attribute from element
-   * @param page
-   * @param selector
-   * @param attribute
+   * Get attribute content from an element
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param attribute {string} Name of the attribute
    * @returns {Promise<string>}
    */
   async getAttributeContent(page, selector, attribute) {
@@ -69,10 +73,10 @@ module.exports = class CommonPage {
 
   /**
    * Is element visible
-   * @param page
-   * @param selector, element to check
-   * @param timeout, how much should we wait
-   * @returns {Promise<boolean>}, true if visible, false if not
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param timeout {number} Time to wait in milliseconds
+   * @returns {Promise<boolean>}
    */
   async elementVisible(page, selector, timeout = 10) {
     try {
@@ -85,10 +89,10 @@ module.exports = class CommonPage {
 
   /**
    * Is element not visible
-   * @param page
-   * @param selector, element to check
-   * @param timeout, how much should we wait
-   * @returns {Promise<boolean>}, true if visible, false if not
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param timeout {number} Time to wait in milliseconds
+   * @returns {Promise<boolean>}
    */
   async elementNotVisible(page, selector, timeout = 10) {
     try {
@@ -100,10 +104,10 @@ module.exports = class CommonPage {
   }
 
   /**
-   * Open link in new Tab and get opened Page
-   * @param page
-   * @param selector, where to click
-   * @param newPageSelector, selector to wait in new page (default to FO logo)
+   * Open link in new Tab and get opened tab
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param newPageSelector {string} String for the element to locate in the opened tab
    * @return newPage, what was opened by the browser
    */
   async openLinkWithTargetBlank(page, selector, newPageSelector = 'body .logo') {
@@ -120,7 +124,7 @@ module.exports = class CommonPage {
 
   /**
    * Reload actual browser page
-   * @param page
+   * @param page {Page} Browser tab
    * @return {Promise<void>}
    */
   async reloadPage(page) {
@@ -128,10 +132,10 @@ module.exports = class CommonPage {
   }
 
   /**
-   * Delete the existing text from input then set a value
-   * @param page
-   * @param selector, input
-   * @param value, value to set in the input
+   * Delete the existing text then type new value on input
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param value {string} String to type on input
    * @return {Promise<void>}
    */
   async setValue(page, selector, value) {
@@ -145,8 +149,8 @@ module.exports = class CommonPage {
 
   /**
    * To accept or dismiss a navigator dialog
-   * @param page
-   * @param accept
+   * @param page {Page} Browser tab
+   * @param accept {boolean} True to perform 'Ok' action, and false to perform 'cancel' action
    * @return {Promise<void>}
    */
   async dialogListener(page, accept = true) {
@@ -158,10 +162,10 @@ module.exports = class CommonPage {
 
   /**
    * Close actual tab and goto another tab if wanted
-   * @param browserContext
-   * @param page
-   * @param tabId
-   * @return {Promise<void>}
+   * @param browserContext {BrowserContext} Actual browser context
+   * @param page {Page} Browser tab
+   * @param tabId {number} Tab id/position to go to after closing page
+   * @return {Promise<Page>}
    */
   async closePage(browserContext, page, tabId = -1) {
     await page.close();
@@ -174,8 +178,8 @@ module.exports = class CommonPage {
 
   /**
    * Scroll to element
-   * @param page
-   * @param selector
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
    * @return {Promise<void>}
    */
   async scrollTo(page, selector) {
@@ -183,10 +187,10 @@ module.exports = class CommonPage {
   }
 
   /**
-   * Select option in select by visible text
-   * @param page
-   * @param selector
-   * @param textValue
+   * Choose option in select element by its visible text
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param textValue {string} Value to the option to select in the select
    * @returns {Promise<void>}
    */
   async selectByVisibleText(page, selector, textValue) {
@@ -210,9 +214,9 @@ module.exports = class CommonPage {
 
   /**
    * To get a number from text
-   * @param page
-   * @param selector
-   * @param timeout
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param timeout {number} Time to wait in milliseconds
    * @returns {Promise<number>}
    */
   async getNumberFromText(page, selector, timeout = 0) {
@@ -224,9 +228,9 @@ module.exports = class CommonPage {
 
   /**
    * Go to Page and wait for navigation
-   * @param page
-   * @param selector
-   * @param waitUntil, the event to wait after click (load/networkidle/domcontentloaded)
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param waitUntil {string} The event to wait after click (load/networkidle/domcontentloaded)
    * @return {Promise<void>}
    */
   async clickAndWaitForNavigation(page, selector, waitUntil = 'networkidle') {
@@ -238,8 +242,8 @@ module.exports = class CommonPage {
 
   /**
    * Navigate to the previous page in history
-   * @param page
-   * @param waitUntil
+   * @param page {Page} Browser tab
+   * @param waitUntil {string} The event to wait after going back (load/networkidle/domcontentloaded)
    * @return {Promise<void>}
    */
   async goToPreviousPage(page, waitUntil = 'load') {
@@ -247,9 +251,9 @@ module.exports = class CommonPage {
   }
 
   /**
-   * Check if checkbox is selected
-   * @param page
-   * @param selector
+   * Get selected value from a checkbox
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
    * @return {Promise<boolean>}
    */
   async isCheckboxSelected(page, selector) {
@@ -257,24 +261,24 @@ module.exports = class CommonPage {
   }
 
   /**
-   * Select, unselect checkbox
-   * @param page
-   * @param checkboxSelector, selector of checkbox
-   * @param valueWanted, true if we want to select checkBox, else otherwise
+   * Set checkbox selected value
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param valueWanted {boolean} True if we want to select checkBox, False to unselect
    * @return {Promise<void>}
    */
-  async changeCheckboxValue(page, checkboxSelector, valueWanted = true) {
-    if (valueWanted !== (await this.isCheckboxSelected(page, checkboxSelector))) {
-      await page.click(checkboxSelector);
+  async changeCheckboxValue(page, selector, valueWanted = true) {
+    if (valueWanted !== (await this.isCheckboxSelected(page, selector))) {
+      await page.click(selector);
     }
   }
 
 
   /**
    * Drag and drop element
-   * @param page
-   * @param selectorToDrag
-   * @param selectorWhereToDrop
+   * @param page {Page} Browser tab
+   * @param selectorToDrag {string} String to locate the element to drag
+   * @param selectorWhereToDrop {string} String to locate the element where to drop
    * @return {Promise<void>}
    */
   async dragAndDrop(page, selectorToDrag, selectorWhereToDrop) {
@@ -286,14 +290,16 @@ module.exports = class CommonPage {
 
 
   /**
-   * Upload file in input type=file selector
-   * @param page
-   * @param selector
-   * @param filePath
+   * Upload file in input type=file
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param filePath {string} File path of the file to import
    * @return {Promise<void>}
    */
   async uploadFile(page, selector, filePath) {
     const input = await page.$(selector);
     await input.setInputFiles(filePath);
   }
-};
+}
+
+module.exports = CommonPage;

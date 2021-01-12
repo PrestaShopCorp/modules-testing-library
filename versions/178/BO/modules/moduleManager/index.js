@@ -1,6 +1,15 @@
 const BOBasePage = require('../../BObasePage.js');
 
+/**
+ * BO module manager page
+ * @class
+ * @extends BOBasePage
+ */
 class ModuleManager extends BOBasePage {
+  /**
+   * @constructs
+   * Creating module manager page (selectors and static messages)
+   */
   constructor() {
     super();
 
@@ -49,9 +58,9 @@ class ModuleManager extends BOBasePage {
 
   /**
    * Search Module in Page module Catalog
-   * @param page
-   * @param moduleTag, Tag of Module
-   * @param moduleName, Name of module
+   * @param page {Page} Browser tab
+   * @param moduleTag {string} Tag of the module
+   * @param moduleName {string} Name of the module
    * @return {Promise<void>}
    */
   async searchModule(page, moduleTag, moduleName) {
@@ -62,8 +71,8 @@ class ModuleManager extends BOBasePage {
 
   /**
    * Click on button configure of a module
-   * @param page
-   * @param moduleName, Name of module
+   * @param page {Page} Browser tab
+   * @param moduleName {string} Name of the module
    * @return {Promise<void>}
    */
   async goToConfigurationPage(page, moduleName) {
@@ -78,8 +87,8 @@ class ModuleManager extends BOBasePage {
 
   /**
    * Get status of module (enable/disable)
-   * @param page
-   * @param moduleName
+   * @param page {Page} Browser tab
+   * @param moduleName {string} Name of the module
    * @return {Promise<boolean>}
    */
   isModuleEnabled(page, moduleName) {
@@ -88,8 +97,8 @@ class ModuleManager extends BOBasePage {
 
   /**
    * Upload a module and returns a success or failure
-   * @param page
-   * @param filePath
+   * @param page {Page} Browser tab
+   * @param filePath {string} Module file path
    * @returns {Promise<boolean>}
    */
   async uploadModule(page, filePath) {
@@ -106,7 +115,7 @@ class ModuleManager extends BOBasePage {
 
   /**
    * Close upload module modal
-   * @param page
+   * @param page {Page} Browser tab
    * @return {Promise<void>}
    */
   async closeUploadModuleModal(page) {
@@ -116,9 +125,9 @@ class ModuleManager extends BOBasePage {
 
   /**
    * Disable module
-   * @param page
-   * @param moduleTag
-   * @param moduleName
+   * @param page {Page} Browser tab
+   * @param moduleTag {string} Tag of the module
+   * @param moduleName {string} Name of the module
    * @return {Promise<string>}
    */
   async disableModule(page, moduleTag, moduleName) {
@@ -146,8 +155,8 @@ class ModuleManager extends BOBasePage {
 
   /**
    * Enable module
-   * @param page
-   * @param moduleName
+   * @param page {Page} Browser tab
+   * @param moduleName {string} Name of the module
    * @return {Promise<string>}
    */
   async enableModule(page, moduleName) {
