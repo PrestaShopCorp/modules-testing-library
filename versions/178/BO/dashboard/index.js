@@ -1,6 +1,15 @@
 const BOBasePage = require('../BObasePage.js');
 
+/**
+ * BO dashboard page
+ * @class
+ * @extends BOBasePage
+ */
 class Dashboard extends BOBasePage {
+  /**
+   * @constructs
+   * Creating dashboard page
+   */
   constructor() {
     super();
 

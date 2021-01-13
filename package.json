@@ -15,10 +15,11 @@
   "homepage": "https://github.com/PrestaShopCorp/prestashop_test_lib#readme",
   "scripts": {
     "ln": "rm -rf ./node_modules/prestashop_test_lib && ln -s .. ./node_modules/prestashop_test_lib",
-    "allTests": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
-    "uiTests": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
-    "unitTests": "./node_modules/mocha/bin/mocha --recursive tests/units",
-    "lint": "eslint  --fix --ignore-path .gitignore ."
+    "all-tests": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
+    "ui-tests": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
+    "unit-tests": "./node_modules/mocha/bin/mocha --recursive tests/units",
+    "lint": "eslint  --fix --ignore-path .gitignore .",
+    "update-docs": "bash ./jsdocScript/updateDocs.sh"
   },
   "_moduleAliases": {
     "@resolvers": "kernel/resolvers",
@@ -33,15 +34,16 @@
     "playwright": "^1.1.1"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "chai": "^4.2.0",
     "chai-string": "^1.5.0",
-    "eslint-config-prestashop": "0.0.2",
-    "mocha": "^6.1.4",
-    "mochawesome": "^2.3.0",
-    "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prestashop": "0.0.2",
     "eslint-plugin-html": "^6.0.2",
-    "eslint-plugin-import": "^2.20.2"
+    "eslint-plugin-import": "^2.20.2",
+    "jsdoc-to-markdown": "^6.0.1",
+    "mocha": "^6.1.4",
+    "mochawesome": "^2.3.0"
   }
 }

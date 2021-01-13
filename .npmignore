@@ -6,3 +6,5 @@
 node_modules
 README.md
 tests/
+docs/
+jsdocScript/

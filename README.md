@@ -112,7 +112,7 @@ The utils directory contains 3 files :
 You can use them as environment variables to override them :
 
 ```bash
-PS_VERSION=1.7.6.8 URL_FO=http://localhost/presta_1768/ LOGIN=prestadmin PASSWD=prestapasswd npm run tests
+PS_VERSION=1.7.6 URL_FO=http://localhost/presta_1768/ LOGIN=prestadmin PASSWD=prestapasswd npm run ui-tests
 ```
 
 :warning: Note: the `PS_VERSION` variable must not include the last digit (patch version). 
@@ -160,8 +160,18 @@ If it doesn't find your class, it will throw an error.
 
 #### Example
 
-You can found an example of the implementation of this library on [this module](https://github.com/PrestaShopCorp/prestashop_test_example).
+You can find an example of the implementation of this library on [this module](https://github.com/PrestaShopCorp/prestashop_test_example).
+
+
+## JS docs
+You can find the functions to use and their its description On this [directory](./docs).
+
+To update docs, you can update the `jsdocScript/updateDocs/sh` and add more source and destination, then you should run:
+
+```shell
+npm run update-docs
+```
 
 ## Contribution
 
-You can Contribute to this library by adding new pages, providing new units and UI tests, by submitting a PR.
+You can contribute to this library by adding new pages, providing new units and UI tests, by submitting a PR.

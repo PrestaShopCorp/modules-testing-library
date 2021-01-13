@@ -1,3 +1,4 @@
+/** @module helpers *//** @module helpers */
 require('./globals');
 
 const playwright = require('playwright');
@@ -6,8 +7,8 @@ module.exports = {
   /**
    * Create playwright browser
    *
-   * @param attempt, number of attempts to restart browser creation if function throw error
-   * @return {Promise<browser>}
+   * @param {number} attempt number of attempts to restart browser creation if function throw error
+   * @return {Promise<Browser>}
    */
   async createBrowser(attempt = 1) {
     try {
@@ -36,8 +37,8 @@ module.exports = {
   /**
    * Create a browser context
    *
-   * @param browser
-   * @return {Promise<*>}
+   * @param browser {Browser} Browser instance from playwright
+   * @return {Promise<BrowserContext>}
    */
   async createBrowserContext(browser) {
     return browser.newContext(
@@ -56,8 +57,8 @@ module.exports = {
   /**
    * Create new tab in browser
    *
-   * @param context
-   * @return {Promise<*>}
+   * @param context {BrowserContext} Browser context instance created
+   * @return {Promise<Page>}
    */
   async newTab(context) {
     return context.newPage();
@@ -66,18 +67,18 @@ module.exports = {
   /**
    * Destroy browser instance, that delete as well all files downloaded
    *
-   * @param browserContext
-   * @return {Promise<*>}
+   * @param context {BrowserContext} Browser context instance to close
+   * @return {Promise<void>}
    */
-  async closeBrowserContext(browserContext) {
-    return browserContext.close();
+  async closeBrowserContext(context) {
+    return context.close();
   },
 
   /**
    * Destroy browser instance, that delete as well all files downloaded
    *
-   * @param browser
-   * @return {Promise<*>}
+   * @param browser {Browser} Browser instance to close
+   * @return {Promise<void>}
    */
   async closeBrowser(browser) {
     return browser.close();

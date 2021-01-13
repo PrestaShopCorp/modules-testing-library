@@ -1,6 +1,15 @@
 const CommonPage = require('../../commonPage');
 
-module.exports = class BOBasePage extends CommonPage {
+/**
+ * BO parent page, contains functions that can be used in every BO page
+ * @class
+ * @extends CommonPage
+ */
+class BOBasePage extends CommonPage {
+  /**
+   * @constructs
+   * Setting up Selectors to use on all BO pages
+   */
   constructor() {
     super();
 
@@ -193,9 +202,9 @@ module.exports = class BOBasePage extends CommonPage {
    */
   /**
    * Open a subMenu if closed and click on a sublink
-   * @param page
-   * @param parentSelector
-   * @param linkSelector
+   * @param page {Page} Browser tab
+   * @param parentSelector {string} String of the parent element on menu
+   * @param linkSelector {string} String of the child element to click on
    * @returns {Promise<void>}
    */
   async goToSubMenu(page, parentSelector, linkSelector) {
@@ -216,7 +225,7 @@ module.exports = class BOBasePage extends CommonPage {
 
   /**
    * Returns to the dashboard then logout
-   * @param page
+   * @param page {Page} Browser tab
    * @returns {Promise<void>}
    */
   async logoutBO(page) {
@@ -231,7 +240,7 @@ module.exports = class BOBasePage extends CommonPage {
 
   /**
    * Close the onboarding modal if exists
-   * @param page
+   * @param page {Page} Browser tab
    * @returns {Promise<void>}
    */
   async closeOnboardingModal(page) {
@@ -244,7 +253,7 @@ module.exports = class BOBasePage extends CommonPage {
 
   /**
    * Click on View My Shop and wait for page to open in a new Tab
-   * @param page
+   * @param page {Page} Browser tab
    * @return FOPage, page opened
    */
   async viewMyShop(page) {
@@ -253,9 +262,9 @@ module.exports = class BOBasePage extends CommonPage {
 
   /**
    * Set value on tinyMce textarea
-   * @param page
-   * @param iFrameSelector
-   * @param value
+   * @param page {Page} Browser tab
+   * @param iFrameSelector {string} String to locate the iFrame
+   * @param value {string} The value to put on input
    * @return {Promise<void>}
    */
   async setValueOnTinymceInput(page, iFrameSelector, value) {
@@ -271,7 +280,7 @@ module.exports = class BOBasePage extends CommonPage {
 
   /**
    * Close symfony Toolbar
-   * @param page
+   * @param page {Page} Browser tab
    * @return {Promise<void>}
    */
   async closeSfToolBar(page) {
@@ -282,9 +291,9 @@ module.exports = class BOBasePage extends CommonPage {
 
   /**
    * Check if Submenu is visible
-   * @param page
-   * @param parentSelector
-   * @param linkSelector
+   * @param page {Page} Browser tab
+   * @param parentSelector {string} String of the parent element on menu
+   * @param linkSelector {string} String of the child element to click on
    * @return {Promise<boolean>}
    */
   async isSubmenuVisible(page, parentSelector, linkSelector) {
@@ -304,7 +313,7 @@ module.exports = class BOBasePage extends CommonPage {
 
   /**
    * Get growl message content
-   * @param page
+   * @param page {Page} Browser tab
    * @return {Promise<string>}
    */
   getGrowlMessageContent(page) {
@@ -313,7 +322,7 @@ module.exports = class BOBasePage extends CommonPage {
 
   /**
    * Close growl message and return its value
-   * @param page
+   * @param page {Page} Browser tab
    * @return {Promise<void>}
    */
   async closeGrowlMessage(page) {
@@ -334,4 +343,6 @@ module.exports = class BOBasePage extends CommonPage {
   getAlertDangerMessage(page) {
     return this.getTextContent(page, this.alertDangerBlockParagraph);
   }
-};
+}
+
+module.exports = BOBasePage;
