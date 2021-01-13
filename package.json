@@ -1,6 +1,6 @@
 {
   "name": "prestashop_test_lib",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "version select resolver",
   "repository": {
     "type": "git",
