@@ -21,7 +21,8 @@ class ModuleCatalog extends BOBasePage {
     this.searchModuleButton = '#module-search-button';
     this.moduleBloc = moduleName => `#modules-list-container-all div[data-name='${moduleName}']:not([style])`;
     this.installModuleButton = moduleName => `${this.moduleBloc(moduleName)} form>button.module_action_menu_install`;
-    this.configureModuleButton = moduleName => `${this.moduleBloc(moduleName)} div.module-actions a[href*='configure']`;
+    this.configureModuleButton = moduleName => `${this.moduleBloc(moduleName)} `
+      + 'div.form-action-button-container button.module_action_menu_configure';
   }
 
   /*
