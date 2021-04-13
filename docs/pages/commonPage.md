@@ -9,7 +9,11 @@ Parent page, contains functions that can be used in every page (BO, FO ...)
     * [.getPageTitle(page)](#CommonPage+getPageTitle) ⇒ <code>Promise.&lt;string&gt;</code>
     * [.goTo(page, url)](#CommonPage+goTo) ⇒ <code>Promise.&lt;void&gt;</code>
     * [.getCurrentURL(page)](#CommonPage+getCurrentURL) ⇒ <code>Promise.&lt;string&gt;</code>
+    * [.waitForSelector(page, selector, state, timeout)](#CommonPage+waitForSelector) ⇒ <code>Promise.&lt;void&gt;</code>
     * [.waitForVisibleSelector(page, selector, timeout)](#CommonPage+waitForVisibleSelector) ⇒ <code>Promise.&lt;void&gt;</code>
+    * [.waitForHiddenSelector(page, selector, timeout)](#CommonPage+waitForHiddenSelector) ⇒ <code>Promise.&lt;void&gt;</code>
+    * [.waitForAttachedSelector(page, selector, timeout)](#CommonPage+waitForAttachedSelector) ⇒ <code>Promise.&lt;void&gt;</code>
+    * [.waitForDetachedSelector(page, selector, timeout)](#CommonPage+waitForDetachedSelector) ⇒ <code>Promise.&lt;void&gt;</code>
     * [.getTextContent(page, selector, waitForSelector, timeout)](#CommonPage+getTextContent) ⇒ <code>Promise.&lt;string&gt;</code>
     * [.getAttributeContent(page, selector, attribute)](#CommonPage+getAttributeContent) ⇒ <code>Promise.&lt;string&gt;</code>
     * [.elementVisible(page, selector, timeout)](#CommonPage+elementVisible) ⇒ <code>Promise.&lt;boolean&gt;</code>
@@ -63,6 +67,20 @@ Get current url
 | --- | --- | --- |
 | page | <code>Page</code> | Browser tab |
 
+<a name="CommonPage+waitForSelector"></a>
+
+### commonPage.waitForSelector(page, selector, state, timeout) ⇒ <code>Promise.&lt;void&gt;</code>
+Wait for selector to have a state
+
+**Kind**: instance method of [<code>CommonPage</code>](#CommonPage)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| page | <code>Page</code> |  | Browser tab |
+| selector | <code>string</code> |  | String to locate the element |
+| state | <code>string</code> |  | State of the element to locate (visible / hidden / attached / detached) |
+| timeout | <code>number</code> | <code>10000</code> | Time to wait in milliseconds |
+
 <a name="CommonPage+waitForVisibleSelector"></a>
 
 ### commonPage.waitForVisibleSelector(page, selector, timeout) ⇒ <code>Promise.&lt;void&gt;</code>
@@ -73,7 +91,46 @@ Wait for selector to be visible
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | page | <code>Page</code> |  | Browser tab |
-| selector | <code>string</code> |  | selector to wait |
+| selector | <code>string</code> |  | String to locate the element |
+| timeout | <code>number</code> | <code>10000</code> | Time to wait in milliseconds |
+
+<a name="CommonPage+waitForHiddenSelector"></a>
+
+### commonPage.waitForHiddenSelector(page, selector, timeout) ⇒ <code>Promise.&lt;void&gt;</code>
+Wait for selector to be visible
+
+**Kind**: instance method of [<code>CommonPage</code>](#CommonPage)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| page | <code>Page</code> |  | Browser tab |
+| selector | <code>string</code> |  | String to locate the element |
+| timeout | <code>number</code> | <code>10000</code> | Time to wait in milliseconds |
+
+<a name="CommonPage+waitForAttachedSelector"></a>
+
+### commonPage.waitForAttachedSelector(page, selector, timeout) ⇒ <code>Promise.&lt;void&gt;</code>
+Wait for selector to be attached
+
+**Kind**: instance method of [<code>CommonPage</code>](#CommonPage)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| page | <code>Page</code> |  | Browser tab |
+| selector | <code>string</code> |  | String to locate the element |
+| timeout | <code>number</code> | <code>10000</code> | Time to wait in milliseconds |
+
+<a name="CommonPage+waitForDetachedSelector"></a>
+
+### commonPage.waitForDetachedSelector(page, selector, timeout) ⇒ <code>Promise.&lt;void&gt;</code>
+Wait for selector to be detached
+
+**Kind**: instance method of [<code>CommonPage</code>](#CommonPage)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| page | <code>Page</code> |  | Browser tab |
+| selector | <code>string</code> |  | String to locate the element |
 | timeout | <code>number</code> | <code>10000</code> | Time to wait in milliseconds |
 
 <a name="CommonPage+getTextContent"></a>

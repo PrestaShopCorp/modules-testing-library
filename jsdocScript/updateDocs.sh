@@ -23,3 +23,5 @@ jsdoc2md --files versions/174/BO/login/index.js > docs/pages/BO/login.md
 jsdoc2md --files versions/174/BO/modules/moduleCatalog/index.js > docs/pages/BO/moduleCatalog.md
 jsdoc2md --files versions/174/BO/modules/moduleConfiguration/index.js > docs/pages/BO/moduleConfiguration.md
 jsdoc2md --files versions/174/BO/modules/moduleManager/index.js > docs/pages/BO/moduleManager.md
+jsdoc2md --files versions/174/BO/catalog/products/index.js > docs/pages/BO/products.md
+jsdoc2md --files versions/174/BO/catalog/products/add.js > docs/pages/BO/addProduct.md

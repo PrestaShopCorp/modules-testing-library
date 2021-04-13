@@ -61,9 +61,11 @@ npm install --save-dev prestashop_test_lib
 The list of pages available is the following : 
 * BO -> Login
 * BO -> dashboard
+* BO -> Products listing
+* BO -> Add product
 * BO -> Module manager / Module selection (depends on the PrestaShop version)
 * BO -> Module catalog
-* BO -> Module configuration (A base page for your module configuration page) 
+* BO -> Module configuration (A base page for your module configuration page)
 
 ### Architecture
 
