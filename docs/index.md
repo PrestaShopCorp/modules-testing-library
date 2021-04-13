@@ -14,6 +14,8 @@
     * [BO pages](./pages/BO)
       * [BO base page](./pages/BO/BObasePage.md)
       * [Login page](./pages/BO/login.md)
+      * [Products page](./pages/BO/products.md)
+      * [Add product page](./pages/BO/addProduct.md)
       * [Dashboard page](./pages/BO/dashboard.md)
       * [Module catalog page](./pages/BO/moduleCatalog.md)
       * [Module configuration page](./pages/BO/moduleConfiguration.md)

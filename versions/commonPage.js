@@ -32,14 +32,59 @@ class CommonPage {
   }
 
   /**
+   * Wait for selector to have a state
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param state {string} State of the element to locate (visible / hidden / attached / detached)
+   * @param timeout {number} Time to wait in milliseconds
+   * @returns {Promise<void>}
+   */
+  async waitForSelector(page, selector, state, timeout = 10000) {
+    await page.waitForSelector(selector, {state, timeout});
+  }
+
+  /**
    * Wait for selector to be visible
    * @param page {Page} Browser tab
-   * @param selector {string} selector to wait
+   * @param selector {string} String to locate the element
    * @param timeout {number} Time to wait in milliseconds
    * @return {Promise<void>}
    */
   async waitForVisibleSelector(page, selector, timeout = 10000) {
-    await page.waitForSelector(selector, {state: 'visible', timeout});
+    await this.waitForSelector(page, selector, 'visible', timeout);
+  }
+
+  /**
+   * Wait for selector to be visible
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param timeout {number} Time to wait in milliseconds
+   * @return {Promise<void>}
+   */
+  async waitForHiddenSelector(page, selector, timeout = 10000) {
+    await this.waitForSelector(page, selector, 'hidden', timeout);
+  }
+
+  /**
+   * Wait for selector to be attached
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param timeout {number} Time to wait in milliseconds
+   * @return {Promise<void>}
+   */
+  async waitForAttachedSelector(page, selector, timeout = 10000) {
+    await this.waitForSelector(page, selector, 'attached', timeout);
+  }
+
+  /**
+   * Wait for selector to be detached
+   * @param page {Page} Browser tab
+   * @param selector {string} String to locate the element
+   * @param timeout {number} Time to wait in milliseconds
+   * @return {Promise<void>}
+   */
+  async waitForDetachedSelector(page, selector, timeout = 10000) {
+    await this.waitForSelector(page, selector, 'detached', timeout);
   }
 
   /**

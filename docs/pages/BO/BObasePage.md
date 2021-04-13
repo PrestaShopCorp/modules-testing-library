@@ -16,7 +16,10 @@ BO parent page, contains functions that can be used in every BO page
     * [.isSubmenuVisible(page, parentSelector, linkSelector)](#BOBasePage+isSubmenuVisible) ⇒ <code>Promise.&lt;boolean&gt;</code>
     * [.getGrowlMessageContent(page)](#BOBasePage+getGrowlMessageContent) ⇒ <code>Promise.&lt;string&gt;</code>
     * [.closeGrowlMessage(page)](#BOBasePage+closeGrowlMessage) ⇒ <code>Promise.&lt;void&gt;</code>
-    * [.getAlertDangerMessage(page)](#BOBasePage+getAlertDangerMessage) ⇒ <code>Promise.&lt;string&gt;</code>
+    * [.getAlertDangerBlockParagraphContent(page)](#BOBasePage+getAlertDangerBlockParagraphContent) ⇒ <code>Promise.&lt;string&gt;</code>
+    * [.getAlertSuccessBlockContent(page)](#BOBasePage+getAlertSuccessBlockContent) ⇒ <code>Promise.&lt;string&gt;</code>
+    * [.getAlertSuccessBlockParagraphContent(page)](#BOBasePage+getAlertSuccessBlockParagraphContent) ⇒ <code>Promise.&lt;string&gt;</code>
+    * [.getAlertInfoBlockParagraphContent(page)](#BOBasePage+getAlertInfoBlockParagraphContent) ⇒ <code>Promise.&lt;string&gt;</code>
 
 <a name="BOBasePage+goToSubMenu"></a>
 
@@ -124,10 +127,43 @@ Close growl message and return its value
 | --- | --- | --- |
 | page | <code>Page</code> | Browser tab |
 
-<a name="BOBasePage+getAlertDangerMessage"></a>
+<a name="BOBasePage+getAlertDangerBlockParagraphContent"></a>
 
-### boBasePage.getAlertDangerMessage(page) ⇒ <code>Promise.&lt;string&gt;</code>
+### boBasePage.getAlertDangerBlockParagraphContent(page) ⇒ <code>Promise.&lt;string&gt;</code>
 Get error message from alert danger block
+
+**Kind**: instance method of [<code>BOBasePage</code>](#BOBasePage)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| page | <code>Page</code> | Browser tab |
+
+<a name="BOBasePage+getAlertSuccessBlockContent"></a>
+
+### boBasePage.getAlertSuccessBlockContent(page) ⇒ <code>Promise.&lt;string&gt;</code>
+Get text content of alert success block
+
+**Kind**: instance method of [<code>BOBasePage</code>](#BOBasePage)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| page | <code>Page</code> | Browser tab |
+
+<a name="BOBasePage+getAlertSuccessBlockParagraphContent"></a>
+
+### boBasePage.getAlertSuccessBlockParagraphContent(page) ⇒ <code>Promise.&lt;string&gt;</code>
+Get text content of alert success block paragraph
+
+**Kind**: instance method of [<code>BOBasePage</code>](#BOBasePage)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| page | <code>Page</code> | Browser tab |
+
+<a name="BOBasePage+getAlertInfoBlockParagraphContent"></a>
+
+### boBasePage.getAlertInfoBlockParagraphContent(page) ⇒ <code>Promise.&lt;string&gt;</code>
+Get text content of alert success block paragraph
 
 **Kind**: instance method of [<code>BOBasePage</code>](#BOBasePage)  
 
