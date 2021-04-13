@@ -23,6 +23,7 @@
   },
   "_moduleAliases": {
     "@resolvers": "kernel/resolvers",
+    "@data": "tests/ui/data",
     "@versions": "versions",
     "@utils": "kernel/utils",
     "@kernel": "kernel",
@@ -42,6 +43,7 @@
     "eslint-config-prestashop": "0.0.2",
     "eslint-plugin-html": "^6.0.2",
     "eslint-plugin-import": "^2.20.2",
+    "faker": "^4.1.0",
     "jsdoc-to-markdown": "^6.0.1",
     "mocha": "^6.1.4",
     "mochawesome": "^2.3.0"
