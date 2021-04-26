@@ -44,7 +44,7 @@
     "eslint-plugin-html": "^6.0.2",
     "eslint-plugin-import": "^2.20.2",
     "faker": "^4.1.0",
-    "jsdoc-to-markdown": "^6.0.1",
+    "jsdoc-to-markdown": "^7.0.1",
     "mocha": "^6.1.4",
     "mochawesome": "^2.3.0"
   }
