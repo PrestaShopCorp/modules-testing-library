@@ -45,7 +45,7 @@ body:
     attributes:
       label: Code snippet to reproduce your bug
       description: Help us help you! Put down a short code snippet that illustrates your bug and that we can run and debug locally. This will be automatically formatted into code, so no need for backticks.
-      render: shell
+      render: javascript
       placeholder: |
         const VersionSelectResolver = require('@resolvers/versionSelectResolver');
         const versionSelectResolver = new VersionSelectResolver(global.PS_VERSION);
