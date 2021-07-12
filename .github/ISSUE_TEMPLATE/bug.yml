@@ -32,7 +32,7 @@ body:
     id: other-information
     attributes:
       label: Other information
-      descripiton: ex. Nodejs version, Browser type etc.
+      description: ex. Nodejs version, Browser type etc.
   - type: textarea
     id: bug-description
     attributes:
