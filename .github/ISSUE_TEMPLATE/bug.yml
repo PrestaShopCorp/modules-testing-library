@@ -13,7 +13,7 @@ body:
       label: Modules testing library version
       description: Which version of the modules testing library are you using?
       placeholder: ex. 1.0.1
-    validation:
+    validations:
       required: true
   - type: dropdown
     id: prestashop-version
@@ -26,7 +26,7 @@ body:
         - 1.7.6
         - 1.7.5
         - 1.7.4
-    validation:
+    validations:
       required: true
   - type: textarea
     id: other-information
@@ -38,7 +38,7 @@ body:
     attributes:
       label: What happened? / Describe the bug
       description: Also tell us, what did you expect to happen?
-    validation:
+    validations:
       required: true
   - type: textarea
     id: reproducible
