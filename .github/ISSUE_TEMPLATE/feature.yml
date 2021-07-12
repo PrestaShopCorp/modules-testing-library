@@ -1,0 +1,19 @@
+name: Feature request
+description: Request new features to be added
+title: "[Feature]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request!
+  - type: textarea
+    id: feature-request
+    attributes:
+      label: Feature request
+      description: |
+        Let us know what functionality you'd like to see in modules testing library and what is your use case.
+        Do you think others might benefit from this as well?
+      placeholder: ex. Versions to support or pages to add
+    validations:
+      required: true

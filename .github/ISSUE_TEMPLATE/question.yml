@@ -1,0 +1,15 @@
+name: I have a question
+description: Feel free to ask us your questions!
+title: "[Question]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+    validations:
+      required: true
