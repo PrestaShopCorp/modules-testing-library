@@ -46,6 +46,6 @@
     "faker": "^4.1.0",
     "jsdoc-to-markdown": "^7.0.1",
     "mocha": "^6.1.4",
-    "mochawesome": "^2.3.0"
+    "mochawesome": "^6.2.2"
   }
 }
