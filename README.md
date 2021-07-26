@@ -168,7 +168,7 @@ You can find an example of the implementation of this library on [this module](h
 ## JS docs
 You can find the functions to use and their its description On this [directory](./docs).
 
-To update docs, you can update the `jsdocScript/updateDocs/sh` and add more source and destination, then you should run:
+To update docs, you can update the `jsdocScript/updateDocs.sh` and add more sources and destinations, then you should run:
 
 ```shell
 npm run update-docs
