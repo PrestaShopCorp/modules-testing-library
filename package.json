@@ -7,7 +7,7 @@
     "url": "git+https://github.com/PrestaShopCorp/prestashop_test_lib.git"
   },
   "author": "PrestaShop",
-  "license": "OSL-3.0",
+  "license": "MIT",
   "npm-link": "https://www.npmjs.com/package/prestashop_test_lib",
   "bugs": {
     "url": "https://github.com/PrestaShopCorp/prestashop_test_lib/issues"
