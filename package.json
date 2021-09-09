@@ -10,9 +10,9 @@
   "license": "MIT",
   "npm-link": "https://www.npmjs.com/package/prestashop_test_lib",
   "bugs": {
-    "url": "https://github.com/PrestaShopCorp/prestashop_test_lib/issues"
+    "url": "https://github.com/PrestaShopCorp/modules-testing-library/issues"
   },
-  "homepage": "https://github.com/PrestaShopCorp/prestashop_test_lib#readme",
+  "homepage": "https://github.com/PrestaShopCorp/modules-testing-library#readme",
   "scripts": {
     "test:all": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
     "test:ui": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
