@@ -14,12 +14,12 @@
   },
   "homepage": "https://github.com/PrestaShopCorp/prestashop_test_lib#readme",
   "scripts": {
-    "all-tests": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
-    "ui-tests": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
-    "unit-tests": "./node_modules/mocha/bin/mocha --recursive tests/units",
+    "test:all": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
+    "test:ui": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
+    "test:unit": "./node_modules/mocha/bin/mocha --recursive tests/units",
     "lint": "eslint --ignore-path .gitignore .",
-    "lint-fix": "eslint  --fix --ignore-path .gitignore .",
-    "update-docs": "bash ./jsdocScript/updateDocs.sh"
+    "lint:fix": "eslint  --fix --ignore-path .gitignore .",
+    "js-doc:update": "bash ./jsdocScript/updateDocs.sh"
   },
   "_moduleAliases": {
     "@resolvers": "kernel/resolvers",
