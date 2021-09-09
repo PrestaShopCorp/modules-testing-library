@@ -114,7 +114,7 @@ The utils directory contains 3 files :
 You can use them as environment variables to override them :
 
 ```bash
-PS_VERSION=1.7.6 URL_FO=http://localhost/presta_1768/ LOGIN=prestadmin PASSWD=prestapasswd npm run ui-tests
+PS_VERSION=1.7.6 URL_FO=http://localhost/presta_1768/ LOGIN=prestadmin PASSWD=prestapasswd npm run test:ui
 ```
 
 :warning: Note: the `PS_VERSION` variable must not include the last digit (patch version). 
@@ -171,7 +171,7 @@ You can find the functions to use and their its description On this [directory](
 To update docs, you can update the `jsdocScript/updateDocs.sh` and add more sources and destinations, then you should run:
 
 ```shell
-npm run update-docs
+npm run js-doc:update
 ```
 
 ## Contribution

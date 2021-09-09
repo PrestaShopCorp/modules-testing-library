@@ -1,4 +1,4 @@
-# Js documentation for prestashop_test_lib
+# Js documentation for modules-testing-library
 
 ## Table of content
 

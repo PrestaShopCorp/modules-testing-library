@@ -3,7 +3,7 @@ require('module-alias/register');
 const VersionSelectResolver = require('@resolvers/versionSelectResolver.js');
 const assert = require('assert');
 
-const supportedVersions = ['1.7.4', '1.7.5', '1.7.6', '1.7.7', '1.7.8', '1.7.9'];
+const supportedVersions = ['1.7.4', '1.7.5', '1.7.6', '1.7.7', '1.7.8', '8.0'];
 
 const pagesSelectors = [
   'BO/login/index.js',

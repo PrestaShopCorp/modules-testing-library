@@ -1,6 +1,6 @@
 {
   "name": "prestashop_test_lib",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "version select resolver",
   "repository": {
     "type": "git",
@@ -10,16 +10,16 @@
   "license": "MIT",
   "npm-link": "https://www.npmjs.com/package/prestashop_test_lib",
   "bugs": {
-    "url": "https://github.com/PrestaShopCorp/prestashop_test_lib/issues"
+    "url": "https://github.com/PrestaShopCorp/modules-testing-library/issues"
   },
-  "homepage": "https://github.com/PrestaShopCorp/prestashop_test_lib#readme",
+  "homepage": "https://github.com/PrestaShopCorp/modules-testing-library#readme",
   "scripts": {
-    "all-tests": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
-    "ui-tests": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
-    "unit-tests": "./node_modules/mocha/bin/mocha --recursive tests/units",
+    "test:all": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests",
+    "test:ui": "./node_modules/mocha/bin/mocha --recursive --file kernel/utils/setup.js tests/ui",
+    "test:unit": "./node_modules/mocha/bin/mocha --recursive tests/units",
     "lint": "eslint --ignore-path .gitignore .",
-    "lint-fix": "eslint  --fix --ignore-path .gitignore .",
-    "update-docs": "bash ./jsdocScript/updateDocs.sh"
+    "lint:fix": "eslint  --fix --ignore-path .gitignore .",
+    "js-doc:update": "bash ./jsdocScript/updateDocs.sh"
   },
   "_moduleAliases": {
     "@resolvers": "kernel/resolvers",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "module-alias": "^2.2.2",
-    "playwright": "1.8.1"
+    "playwright": "1.13.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
