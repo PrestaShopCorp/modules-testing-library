@@ -141,10 +141,6 @@ const menuSelectors = [
         pageName: 'Image Settings',
         selector: dashboardPage.imageSettingsLink,
       },
-      {
-        pageName: 'Link Widget',
-        selector: dashboardPage.linkWidgetLink,
-      },
     ],
   },
   {

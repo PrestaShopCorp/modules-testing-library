@@ -20,8 +20,8 @@ let browserContext;
 let page;
 
 const moduleToInstall = {
-  name: 'Advertising block',
-  tag: 'ps_advertising',
+  name: 'Customer follow-up',
+  tag: 'ps_reminder',
 };
 
 /*
