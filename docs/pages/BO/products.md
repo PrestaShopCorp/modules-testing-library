@@ -18,7 +18,7 @@ BO products listing page
     * [.getProductQuantityFromList(page, row)](#Product+getProductQuantityFromList) ⇒ <code>Promise.&lt;string&gt;</code>
     * [.filterProducts(page, filterBy, value, filterType)](#Product+filterProducts) ⇒ <code>Promise.&lt;void&gt;</code>
     * [.getTextColumn(page, column, row)](#Product+getTextColumn) ⇒ <code>Promise.&lt;(string\|number)&gt;</code>
-    * [.getAllRowsColumnContent(page, column)](#Product+getAllRowsColumnContent) ⇒ <code>Promise.&lt;Array&gt;</code>
+    * [.getAllRowsColumnContent(page, column)](#Product+getAllRowsColumnContent) ⇒ <code>Promise.&lt;Array.&lt;string&gt;&gt;</code>
     * [.getNumberOfProductsFromList(page)](#Product+getNumberOfProductsFromList) ⇒ <code>Promise.&lt;number&gt;</code>
     * [.resetFilter(page)](#Product+resetFilter) ⇒ <code>Promise.&lt;void&gt;</code>
     * [.resetAndGetNumberOfLines(page)](#Product+resetAndGetNumberOfLines) ⇒ <code>Promise.&lt;number&gt;</code>
@@ -173,7 +173,7 @@ Get Text Column
 
 <a name="Product+getAllRowsColumnContent"></a>
 
-### product.getAllRowsColumnContent(page, column) ⇒ <code>Promise.&lt;Array&gt;</code>
+### product.getAllRowsColumnContent(page, column) ⇒ <code>Promise.&lt;Array.&lt;string&gt;&gt;</code>
 Get content from all rows
 
 **Kind**: instance method of [<code>Product</code>](#Product)  
