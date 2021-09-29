@@ -15,11 +15,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build PrestaShop using docker
-        env:
-          VERSION: ${{ matrix.VERSION }}
         shell: bash
         run: |
-          docker-compose -f docker-compose.yml up -d
+          VERSION='${{ matrix.VERSION }}' docker-compose -f docker-compose.yml up -d
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} http://localhost:8001/index.php)" != "200" ]]; do sleep 5; done'
 
       - uses: actions/setup-node@v2
