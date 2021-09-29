@@ -17,8 +17,8 @@ jobs:
       - name: Build PrestaShop using docker
         shell: bash
         run: |
-          VERSION='${{ matrix.VERSION }}' docker-compose -f docker-compose.yml up -d
-          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} http://localhost:8001/index.php)" != "200" ]]; do sleep 5; done'
+          VERSION='${{ matrix.VERSION }}' docker-compose -f docker-compose.yml up --build -d
+          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} http://localhost:8001/admin-dev)" != "200" ]]; do sleep 5; done'
 
       - uses: actions/setup-node@v2
         with:
