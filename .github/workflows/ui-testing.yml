@@ -28,8 +28,6 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: |
-          PS_VERSION=$(echo "${{ matrix.VERSION }}" | awk '{ print substr( $0, 0, length($0)-2 ) }')
-          npm run test:ui
+        run: PS_VERSION=$(echo "${{ matrix.VERSION }}" | awk '{ print substr( $0, 0, length($0)-2 ) }') npm run test:ui
         env:
           URL_FO: "http://localhost:8001/"
