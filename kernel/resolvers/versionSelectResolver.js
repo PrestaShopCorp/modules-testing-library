@@ -4,11 +4,12 @@ const path = require('path');
 
 /*
 Supported patch versions:
-- 1.7.4.4
-- 1.7.5.2
-- 1.7.6.8
-- 1.7.7.0
-- 1.7.8.0
+- 1.7.4.4 => 7.4
+- 1.7.5.2 => 7.5
+- 1.7.6.8 => 7.6
+- 1.7.7.0 => 7.7
+- 1.7.8.0 => 7.8
+- 8.0.0 => 8.0
  */
 
 /**
@@ -50,7 +51,13 @@ class VersionSelectResolver {
     }
 
     // either we don't have the file in configClassMap or we don't have a target for this version
-    const versionForFilepath = this.version.replace(/\./g, '');
+    let versionForFilepath = this.version.replace(/\./g, '');
+
+    // Delete '1.' from file path
+    if (versionForFilepath.startsWith('1')) {
+      versionForFilepath = versionForFilepath.substring(1);
+    }
+
     const basePath = path.resolve(__dirname, '../..');
 
     if (!fs.existsSync(`${basePath}/versions/${versionForFilepath}`)) {

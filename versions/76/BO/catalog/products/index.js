@@ -60,7 +60,7 @@ class Product extends BOBasePage {
     this.productsListTableColumnCategory = row => `${this.productsListTableRow(row)} td:nth-child(6)`;
     this.productsListTableColumnPrice = row => `${this.productsListTableRow(row)} td:nth-child(7)`;
     this.productsListTableColumnQuantity = row => `${this.productsListTableRow(row)} td.product-sav-quantity`;
-    this.productsListTableColumnStatus = row => `${this.productsListTableRow(row)} td:nth-child(9)`;
+    this.productsListTableColumnStatus = row => `${this.productsListTableRow(row)} td:nth-child(10)`;
     this.productsListTableColumnStatusEnabled = row => `${this.productsListTableColumnStatus(row)} .action-enabled`;
     // Filter Category
     this.treeCategoriesBloc = '#tree-categories';
@@ -252,14 +252,14 @@ class Product extends BOBasePage {
    * Get content from all rows
    * @param page {Page} Browser tab
    * @param column {string} Column name to get text from
-   * @return {Promise<[]>}
+   * @return {Promise<Array<string>>}
    */
   async getAllRowsColumnContent(page, column) {
     const rowsNumber = await this.getNumberOfProductsFromList(page);
     const allRowsContentTable = [];
     for (let i = 1; i <= rowsNumber; i++) {
       const rowContent = await this.getTextColumn(page, column, i);
-      await allRowsContentTable.push(rowContent);
+      allRowsContentTable.push(rowContent);
     }
     return allRowsContentTable;
   }

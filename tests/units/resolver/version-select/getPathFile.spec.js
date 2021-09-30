@@ -10,14 +10,14 @@ describe('Testing resolver getFilePath', () => {
   it('should get the correct file with discover for 1.7.7', () => {
     const versionSelectResolver = new VersionSelectResolver('1.7.7');
     assert.strictEqual(versionSelectResolver.getFilePath('BO/login/index.js'),
-      `${process.cwd()}/versions/177/BO/login/index.js`,
+      `${process.cwd()}/versions/77/BO/login/index.js`,
     );
   });
 
   it('should get the overriden file (with configClassMap) for 1.7.4', () => {
     const versionSelectResolver = new VersionSelectResolver('1.7.4', configClassMap);
     assert.strictEqual(versionSelectResolver.getFilePath('BO/dashboard/index.js'),
-      '/versions/174/BO/dashboard/index_overriden.js',
+      '/versions/74/BO/dashboard/index_overriden.js',
     );
   });
 
@@ -34,7 +34,7 @@ describe('Testing resolver getFilePath', () => {
     );
   });
 
-  it('should not find the file orders/index.js for version 176 and throw an error', () => {
+  it('should not find the file orders/index.js for version 76 and throw an error', () => {
     const versionSelectResolver = new VersionSelectResolver('1.7.6');
     function resolveFilePathFileNonExistent() {
       return versionSelectResolver.getFilePath('BO/orders/index.js');

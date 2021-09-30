@@ -16,12 +16,12 @@ jsdoc2md --files kernel/utils/setup.js > docs/kernel/utils/setup.md
 # Common page
 jsdoc2md --files versions/commonPage.js > docs/pages/commonPage.md
 
-# versions/174 directory
-jsdoc2md --files versions/174/BO/BObasePage.js > docs/pages/BO/BObasePage.md
-jsdoc2md --files versions/174/BO/dashboard/index.js > docs/pages/BO/dashboard.md
-jsdoc2md --files versions/174/BO/login/index.js > docs/pages/BO/login.md
-jsdoc2md --files versions/174/BO/modules/moduleCatalog/index.js > docs/pages/BO/moduleCatalog.md
-jsdoc2md --files versions/174/BO/modules/moduleConfiguration/index.js > docs/pages/BO/moduleConfiguration.md
-jsdoc2md --files versions/174/BO/modules/moduleManager/index.js > docs/pages/BO/moduleManager.md
-jsdoc2md --files versions/174/BO/catalog/products/index.js > docs/pages/BO/products.md
-jsdoc2md --files versions/174/BO/catalog/products/add.js > docs/pages/BO/addProduct.md
+# versions/74 directory
+jsdoc2md --files versions/74/BO/BObasePage.js > docs/pages/BO/BObasePage.md
+jsdoc2md --files versions/74/BO/dashboard/index.js > docs/pages/BO/dashboard.md
+jsdoc2md --files versions/74/BO/login/index.js > docs/pages/BO/login.md
+jsdoc2md --files versions/74/BO/modules/moduleCatalog/index.js > docs/pages/BO/moduleCatalog.md
+jsdoc2md --files versions/74/BO/modules/moduleConfiguration/index.js > docs/pages/BO/moduleConfiguration.md
+jsdoc2md --files versions/74/BO/modules/moduleManager/index.js > docs/pages/BO/moduleManager.md
+jsdoc2md --files versions/74/BO/catalog/products/index.js > docs/pages/BO/products.md
+jsdoc2md --files versions/74/BO/catalog/products/add.js > docs/pages/BO/addProduct.md
