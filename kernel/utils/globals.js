@@ -1,3 +1,4 @@
+require('dotenv').config();
 /**
  * @namespace FO
  * @desc FO global vars
